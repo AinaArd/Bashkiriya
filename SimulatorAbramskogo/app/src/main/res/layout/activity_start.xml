@@ -11,21 +11,30 @@
         android:id="@+id/buttonDesc"
         android:layout_width="114dp"
         android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="128dp"
         android:layout_marginTop="100dp"
-        android:text="Описание"
         android:background="#FFEB3B"
+        android:text="Описание"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="114dp"
         android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="188dp"
-        android:text="Старт"
+        android:layout_marginTop="184dp"
         android:background="#FFEB3B"
+        android:text="Старт"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
