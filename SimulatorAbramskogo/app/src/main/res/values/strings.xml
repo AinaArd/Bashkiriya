@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimulatorAbramskogo</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="description">Приветствуем в Симуляторе Абрамского! Здесь ты играешь за Михаила Михайловича Абрамского. Выполняйя задания, получай фломастеры и зарабатывай достижения! Но не забыввай следить за показателями сна, настроения и авторитета! Если хотя бы один из них упадет до минимума, игра закончится. Старайся разумно выбирать задания, чтобы как можно быстрее заработать главное достижение - Стать лучшим молодым преподавателем!</string>
+</resources>

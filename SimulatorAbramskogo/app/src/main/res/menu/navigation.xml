@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account"
+        android:title="Профиль"
+        />
+
+    <item
+        android:id="@+id/tasks"
+        android:icon="@drawable/ic_tasks"
+        android:title="Задания"
+        />
+
+    <item
+        android:id="@+id/achievements"
+        android:icon="@drawable/ic_achievements"
+        android:title="Достижения" />
+
+</menu>
