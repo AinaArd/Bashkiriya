@@ -1,4 +1,4 @@
-package com.example.simulatorabramskogo;
+package com.example.simulatorabramskogo.activities;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.simulatorabramskogo.R;
 
 public class Profile extends AppCompatActivity {
 

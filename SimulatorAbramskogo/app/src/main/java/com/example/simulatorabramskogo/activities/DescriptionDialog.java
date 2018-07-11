@@ -1,4 +1,4 @@
-package com.example.simulatorabramskogo;
+package com.example.simulatorabramskogo.activities;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.simulatorabramskogo.R;
 
 /**
  * Created by ${Aina} on 11.07.2018.
