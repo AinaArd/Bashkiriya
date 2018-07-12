@@ -33,7 +33,5 @@ public class Downloader {
             e.printStackTrace();
         }
     }
-//
-//    public void getLi
 
 }

@@ -13,19 +13,23 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
 import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 
 public class Navigation extends AppCompatActivity {
-
+    private Abramskiy abramskiy;
     private int currentPressedButton = -1;
     private TextView mTextMessage;
     ImageView profilePicAdr;
     TextView sleep;
     TextView mood;
     TextView authority;
+
+    TextView markers;
     ProgressBar progressBarSleep;
     ProgressBar progressBarMood;
     ProgressBar progressBarAuthority;
@@ -84,13 +88,22 @@ public class Navigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
 
+        abramskiy = Abramskiy.getInstance();
         sleep = findViewById(R.id.textViewSleep);
         mood = findViewById(R.id.textViewMood);
         authority = findViewById(R.id.textViewAuthority);
 
+        markers = findViewById(R.id.textViewMarkers);
+        markers.setText(String.valueOf(abramskiy.getMarkers()));
+
         progressBarSleep = (ProgressBar) findViewById(R.id.progressBarSleep);
+        progressBarSleep.setProgress(abramskiy.getSleep());
+
         progressBarMood = (ProgressBar) findViewById(R.id.progressBarMood);
+        progressBarMood.setProgress(abramskiy.getMood());
+
         progressBarAuthority = (ProgressBar) findViewById(R.id.progressBarAuthority);
+        progressBarAuthority.setProgress(abramskiy.getAuthority());
 
         frameLayout = findViewById(R.id.framelayout);
         fragmentTask = new TasksFragment();
