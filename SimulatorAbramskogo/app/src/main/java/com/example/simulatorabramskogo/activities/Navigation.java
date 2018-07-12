@@ -1,18 +1,25 @@
 package com.example.simulatorabramskogo.activities;
 
+import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.app.TaskStackBuilder;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
+import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
 
-public class Profile extends AppCompatActivity {
+public class Navigation extends AppCompatActivity {
 
+    private int currentPressedButton = -1;
     private TextView mTextMessage;
     ImageView profilePicAdr;
     TextView sleep;
@@ -20,7 +27,11 @@ public class Profile extends AppCompatActivity {
     TextView authority;
     ProgressBar progressBarSleep;
     ProgressBar progressBarMood;
-    ProgressBar progressBarAuthoruty;
+    ProgressBar progressBarAuthority;
+
+    FrameLayout frameLayout;
+    TasksFragment fragmentTask;
+    AchievementsFragment fragmentAchievements;
 
 
 
@@ -29,7 +40,7 @@ public class Profile extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
+           /* switch (item.getItemId()) {
                 case R.id.profile:
                     mTextMessage.setText("Профиль");
                     return true;
@@ -40,14 +51,39 @@ public class Profile extends AppCompatActivity {
                     mTextMessage.setText("Достижения");
                     return true;
             }
+            return false;*/
+
+            if (item.getItemId() == currentPressedButton) {
+                return false;
+            } else if (item.getItemId() == R.id.profile){
+                mTextMessage.setText("Профиль");
+                return true;
+            } else if (item.getItemId() == R.id.tasks){
+                mTextMessage.setText("Задания");
+                // TODO go to tasks activity
+                setFragment(fragmentTask);
+                return true;
+            } else if (item.getItemId() == R.id.achievements){
+                mTextMessage.setText("Достижения");
+                // TODO go to achievements activity
+                setFragment(fragmentAchievements);
+                return true;
+            }
             return false;
         }
     };
 
+    private void setFragment(Fragment fragment) {
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.framelayout,fragment);
+        fragmentTransaction.commit();
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_nav);
 
         sleep = findViewById(R.id.textViewSleep);
         mood = findViewById(R.id.textViewMood);
@@ -55,7 +91,11 @@ public class Profile extends AppCompatActivity {
 
         progressBarSleep = (ProgressBar) findViewById(R.id.progressBarSleep);
         progressBarMood = (ProgressBar) findViewById(R.id.progressBarMood);
-        progressBarAuthoruty = (ProgressBar) findViewById(R.id.progressBarAuthority);
+        progressBarAuthority = (ProgressBar) findViewById(R.id.progressBarAuthority);
+
+        frameLayout = findViewById(R.id.framelayout);
+        fragmentTask = new TasksFragment();
+        fragmentAchievements = new AchievementsFragment();
 
 
         profilePicAdr = findViewById(R.id.imageViewAbr);
