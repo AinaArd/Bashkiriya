@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.activities.ListAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,12 +28,12 @@ public class TasksFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_tasks,container,false);
-       /* recyclerView = view.findViewById(R.id.recycleView);
+        recyclerView = view.findViewById(R.id.recycleView);
 
         ListAdapter listAdapter = new ListAdapter();
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);*/
+        recyclerView.setLayoutManager(layoutManager);
         return view;
     }
 

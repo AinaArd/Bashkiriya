@@ -7,19 +7,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
 import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
 import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
-import com.example.simulatorabramskogo.logic.Abramskiy;
 
 public class Navigation extends AppCompatActivity {
 
-    private int currentPressedButton = -1;
     private TextView mTextMessage;
 
 
@@ -35,9 +31,7 @@ public class Navigation extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            if (item.getItemId() == currentPressedButton) {
-                return false;
-            } else if (item.getItemId() == R.id.profile) {
+            if (item.getItemId() == R.id.profile) {
                 setFragment(fragmentProfile);
                 return true;
             } else if (item.getItemId() == R.id.tasks) {
