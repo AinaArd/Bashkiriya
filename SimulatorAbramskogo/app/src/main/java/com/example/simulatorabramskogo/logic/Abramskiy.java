@@ -8,6 +8,7 @@ public class Abramskiy {
     private Integer mood;
     private Integer authority;
     private Integer markers;
+    private List<Action> actions;
     private List<Observer> observers;
 
     public Abramskiy() {
@@ -15,37 +16,39 @@ public class Abramskiy {
         mood = 50;
         authority = 50;
         markers = 20;
+        actions = loadActions();
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
     }
 
-    public void beAtTime() {
-        update(20, -10, 0, 10);
+    private List<Action> loadActions() {
+        //ToDo loading actions
+        return null;
     }
 
-    private void update(int markerPoints, int sleepPoints, int moodPoints, int authorityPoints) {
-        if (markers + markerPoints < 0) {
-            System.out.println("Sorry, out of markers");
-        } else if (sleep + sleepPoints <= 0 || mood + moodPoints <= 0 || authority + authorityPoints <= 0) {
-            System.out.println("Game over");
-        } else {
-            sleep += sleepPoints;
-            mood += moodPoints;
-            authority += authorityPoints;
-            markers += markerPoints;
-            notifyObservers();
-            printCurrentState();
+    public void performAction(int id) {
+        Action action = findActionById(id);
+        action.perform();
+    }
+
+    private Action findActionById(int id) {
+        for (Action action: actions) {
+            if (action.getId() == id) {
+                return action;
+            }
         }
+        return null;
     }
 
-    private void notifyObservers() {
+
+    public void notifyObservers() {
         for (Observer o: observers) {
             o.update();
         }
     }
 
 
-    private void printCurrentState() {
+    public void printCurrentState() {
         System.out.println("Sleep: " + sleep + "\n"
                           + "Mood: " + mood + "\n"
                           + "Authority: " + authority + "\n"
@@ -54,5 +57,33 @@ public class Abramskiy {
 
     public Integer getMarkers() {
         return markers;
+    }
+
+    public Integer getSleep() {
+        return sleep;
+    }
+
+    public Integer getMood() {
+        return mood;
+    }
+
+    public Integer getAuthority() {
+        return authority;
+    }
+
+    public void addSleep(Integer sleepPoints) {
+        sleep += sleepPoints;
+    }
+
+    public void addMood(Integer moodPoints) {
+        mood += moodPoints;
+    }
+
+    public void addAuthority(Integer authorityPoints) {
+        authority += authorityPoints;
+    }
+
+    public void addMarkers(Integer markerPoints) {
+        markers += markerPoints;
     }
 }
