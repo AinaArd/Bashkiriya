@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Abramskiy {
+    private static Abramskiy instance;
     private Integer sleep;
     private Integer mood;
     private Integer authority;
@@ -11,7 +12,7 @@ public class Abramskiy {
     private List<Action> actions;
     private List<Observer> observers;
 
-    public Abramskiy() {
+    private Abramskiy() {
         sleep = 50;
         mood = 50;
         authority = 50;
@@ -19,6 +20,13 @@ public class Abramskiy {
         actions = loadActions();
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
+    }
+
+    public static Abramskiy getInstance() {
+        if (instance == null) {
+            instance = new Abramskiy();
+        }
+        return instance;
     }
 
     private List<Action> loadActions() {
