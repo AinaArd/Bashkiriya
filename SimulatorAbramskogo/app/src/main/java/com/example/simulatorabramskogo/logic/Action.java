@@ -9,8 +9,9 @@ public class Action {
     private Integer authorityPoints;
     private Abramskiy abramskiy;
 
-    public Action(Abramskiy abramskiy, String name, Integer markerPoints, Integer sleepPoints, Integer moodPoints, Integer authorityPoints) {
+    public Action(Abramskiy abramskiy, String name, int id, Integer markerPoints, Integer sleepPoints, Integer moodPoints, Integer authorityPoints) {
         this.abramskiy = abramskiy;
+        this.id = id;
         this.name = name;
         this.markerPoints = markerPoints;
         this.sleepPoints = sleepPoints;

@@ -22,8 +22,12 @@ public class Abramskiy {
     }
 
     private List<Action> loadActions() {
+        ArrayList<Action> actions = new ArrayList<>();
+        actions.add(new Action(this, "name1", 1, 20, 20, 20, 20));
+        actions.add(new Action(this, "name2", 2, 10, -10, -20, 10));
+        actions.add(new Action(this, "name3", 3, 10, 10, 10, 10));
         //ToDo loading actions
-        return null;
+        return actions;
     }
 
     public void performAction(int id) {
