@@ -1,11 +1,12 @@
 package com.example.simulatorabramskogo.activities;
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v4.app.Fragment;
 import android.app.TaskStackBuilder;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -34,13 +35,12 @@ public class Navigation extends AppCompatActivity {
     AchievementsFragment fragmentAchievements;
 
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-           /* switch (item.getItemId()) {
+            /*switch (item.getItemId()) {
                 case R.id.profile:
                     mTextMessage.setText("Профиль");
                     return true;
@@ -55,27 +55,26 @@ public class Navigation extends AppCompatActivity {
 
             if (item.getItemId() == currentPressedButton) {
                 return false;
-            } else if (item.getItemId() == R.id.profile){
-                mTextMessage.setText("Профиль");
+            } else if (item.getItemId() == R.id.profile) {
                 return true;
-            } else if (item.getItemId() == R.id.tasks){
-                mTextMessage.setText("Задания");
+            } else if (item.getItemId() == R.id.tasks) {
                 // TODO go to tasks activity
                 setFragment(fragmentTask);
                 return true;
-            } else if (item.getItemId() == R.id.achievements){
-                mTextMessage.setText("Достижения");
+            } else if (item.getItemId() == R.id.achievements) {
                 // TODO go to achievements activity
                 setFragment(fragmentAchievements);
                 return true;
             }
             return false;
         }
+
     };
+
 
     private void setFragment(Fragment fragment) {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.framelayout,fragment);
+        fragmentTransaction.replace(R.id.framelayout, fragment);
         fragmentTransaction.commit();
 
     }
@@ -104,7 +103,6 @@ public class Navigation extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-
-
-
 }
+
+
