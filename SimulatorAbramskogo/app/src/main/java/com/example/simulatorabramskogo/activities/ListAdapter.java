@@ -23,6 +23,11 @@ public class ListAdapter extends RecyclerView.Adapter{
 
     Downloader d = new Downloader();
     List<Action> tasks;
+
+    public ListAdapter(List<Action> tasks) {
+        this.tasks = d.getListOfTasks();
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,7 +42,8 @@ public class ListAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemCount() {
-        return tasks.size();
+//        return tasks.size();
+        return 10;
     }
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -53,13 +59,21 @@ public class ListAdapter extends RecyclerView.Adapter{
 
         @Override
         public void onClick(View v) {
-
+            // TODO what happens after clicking on a task?
         }
 
         public void bindView(int position){
-            d.getListOfTasks();
-            textView.setText(tasks.indexOf(position));
+//            textView.setText("task1");
+            textView.setText(getTask());
 //            imageView.setImageResource();
+        }
+
+        public String getTask(){
+            for(Action action : tasks){
+                String task = action.getName();
+                return task;
+            }
+            return "None available tasks";
         }
     }
 }

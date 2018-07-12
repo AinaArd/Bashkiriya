@@ -2,7 +2,7 @@ package com.example.simulatorabramskogo.logic;
 
 public class Action {
     private int id;
-    private String name;
+    private static String name;
     private Integer markerPoints;
     private Integer sleepPoints;
     private Integer moodPoints;
@@ -36,5 +36,9 @@ public class Action {
             abramskiy.notifyObservers();
             abramskiy.printCurrentState();
         }
+    }
+
+    public static String getName() {
+        return name;
     }
 }
