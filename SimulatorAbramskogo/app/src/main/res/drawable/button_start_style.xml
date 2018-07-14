@@ -1,17 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:insetBottom="6dp"
-    android:insetLeft="4dp"
-    android:insetRight="4dp"
-    android:insetTop="6dp">
-    <ripple android:color="#ffffff">
-        <item>
-            <shape android:shape="rectangle"
-                android:tint="#ffffff">
-                <corners android:radius="10dp"/>
-                <solid android:color="#ffffff"/>
-                <padding android:bottom="6dp"/>
-            </shape>
-        </item>
-    </ripple>
-</inset>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--button default background color-->
+    <item>
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="4dp"
+                android:color="#ffffff" />
+            <corners android:radius="10dp" />
+            <solid android:color="@color/colorPrimaryDark" />
+
+        </shape>
+    </item>
+
+    <!--button focused state background color-->
+    <item android:state_focused="true">
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="4dp"
+                android:color="@color/colorPrimaryDark" />
+            <corners android:radius="10dp" />
+            <solid android:color="#ffffff" />
+
+        </shape>
+    </item>
+
+    <!--button pressed state background color-->
+    <item android:state_pressed="true">
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="4dp"
+                android:color="@color/colorPrimaryDark" />
+            <corners android:radius="10dp" />
+            <solid android:color="#ffffff" />
+
+        </shape>
+    </item>
+</selector>
