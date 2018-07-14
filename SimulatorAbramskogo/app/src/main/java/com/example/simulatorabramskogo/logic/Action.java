@@ -1,5 +1,7 @@
 package com.example.simulatorabramskogo.logic;
 
+import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
+
 public class Action {
     private int id;
     private static String name;

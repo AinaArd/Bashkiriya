@@ -12,11 +12,12 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.Observer;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements Observer {
 
 
     private Abramskiy abramskiy;
@@ -46,20 +47,21 @@ public class ProfileFragment extends Fragment {
         authority = view.findViewById(R.id.textViewAuthority);
 
         markers = view.findViewById(R.id.textViewMarkers);
-        markers.setText(String.valueOf(abramskiy.getMarkers()));
+
 
         progressBarSleep = (ProgressBar) view.findViewById(R.id.progressBarSleep);
-        progressBarSleep.setProgress(abramskiy.getSleep());
-
         progressBarMood = (ProgressBar) view.findViewById(R.id.progressBarMood);
-        progressBarMood.setProgress(abramskiy.getMood());
-
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
-        progressBarAuthority.setProgress(abramskiy.getAuthority());
-
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
-
+        update();
         return view;
     }
 
+    @Override
+    public void update() {
+        markers.setText(String.valueOf(abramskiy.getMarkers()));
+        progressBarSleep.setProgress(abramskiy.getSleep());
+        progressBarMood.setProgress(abramskiy.getMood());
+        progressBarAuthority.setProgress(abramskiy.getAuthority());
+    }
 }

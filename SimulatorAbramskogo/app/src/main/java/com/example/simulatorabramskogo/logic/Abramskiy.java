@@ -1,5 +1,7 @@
 package com.example.simulatorabramskogo.logic;
 
+import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Abramskiy {
         actions = loadActions();
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
+        observers.add(new ProfileFragment());
     }
 
     public static Abramskiy getInstance() {
@@ -31,10 +34,7 @@ public class Abramskiy {
 
     private List<Action> loadActions() {
         ArrayList<Action> actions = new ArrayList<>();
-        actions.add(new Action(this, "name1", 1, 20, 20, 20, 20));
-        actions.add(new Action(this, "name2", 2, 10, -10, -20, 10));
-        actions.add(new Action(this, "name3", 3, 10, 10, 10, 10));
-        //ToDo loading actions
+        (new Downloader()).getListOfTasks();
         return actions;
     }
 

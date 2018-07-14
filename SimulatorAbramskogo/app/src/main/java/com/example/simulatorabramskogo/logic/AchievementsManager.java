@@ -11,17 +11,8 @@ public class AchievementsManager implements Observer {
 
     public AchievementsManager(Abramskiy abramskiy) {
         this.abramskiy = abramskiy;
-        achievemets = new LinkedList<>();
-        loadAchievements();
-
-        achievemets.add(new Achievement(1, "a1", 30));
-        achievemets.add(new Achievement(2, "a2", 50));
-
+        achievemets = (new Downloader()).getListOfAchievements();
         nextAchievement = achievemets.get(0);
-    }
-
-    private void loadAchievements() {
-        //TODO loading list of achievements from txt
     }
 
     @Override
@@ -29,9 +20,10 @@ public class AchievementsManager implements Observer {
         if (abramskiy.getMarkers() >= nextAchievement.getMarkers()) {
             currentAchievement = nextAchievement;
             nextAchievement = getNextAchievement();
+            //TODO dialog about next acievement
             System.out.println("You achieved: " + currentAchievement.getName());
             if (nextAchievement == null) {
-                System.out.println("YOU WIN!");
+                //TODO dialog about winning
             }
         }
     }
