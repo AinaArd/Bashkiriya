@@ -2,6 +2,7 @@ package com.example.simulatorabramskogo.activities;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,7 @@ import android.widget.TextView;
 
 
 import com.example.simulatorabramskogo.R;
-import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Action;
-import com.example.simulatorabramskogo.logic.Downloader;
 
 import java.util.List;
 
@@ -21,11 +20,11 @@ import java.util.List;
  */
 public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
 
-    Downloader d = new Downloader();
+
     List<Action> tasks;
 
     public TaskAdapter(List<Action> listOfTasks) {
-        this.tasks = d.getListOfTasks();
+        this.tasks = listOfTasks;
     }
 
     @NonNull
@@ -42,8 +41,7 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
 
     @Override
     public int getItemCount() {
-//        return tasks.size();
-        return 100;
+        return tasks.size();
     }
 
     @Override
@@ -67,17 +65,16 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
         }
 
         public void bindView(int position){
-//            textView.setText("task1");
-            textView.setText(getTask());
-//            imageView.setImageResource();
+            textView.setText(getTaskById(position).getName());
         }
 
-        public String getTask(){
+        public Action getTaskById(int id){
             for(Action action : tasks){
-                String task = action.getName();
-                return task;
+                if (action.getId() - 1 == id) {
+                    return action;
+                }
             }
-            return "None available tasks";
+            return new Action(-1, "null", 0, 0, 0, 0);
         }
     }
 }

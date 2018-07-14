@@ -1,5 +1,6 @@
 package com.example.simulatorabramskogo.logic;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class AchievementsManager implements Observer {
 
     public AchievementsManager(Abramskiy abramskiy) {
         this.abramskiy = abramskiy;
-        achievemets = (new Downloader()).getListOfAchievements();
+        achievemets = new ArrayList<>();
         achievemets.add(new Achievement(1, "name", 1));
         nextAchievement = achievemets.get(0);
     }
