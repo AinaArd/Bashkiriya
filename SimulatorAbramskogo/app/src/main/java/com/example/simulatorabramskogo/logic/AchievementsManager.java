@@ -12,6 +12,7 @@ public class AchievementsManager implements Observer {
     public AchievementsManager(Abramskiy abramskiy) {
         this.abramskiy = abramskiy;
         achievemets = (new Downloader()).getListOfAchievements();
+        achievemets.add(new Achievement(1, "name", 1));
         nextAchievement = achievemets.get(0);
     }
 
