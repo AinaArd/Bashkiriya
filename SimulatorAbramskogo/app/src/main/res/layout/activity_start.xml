@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.StartActivity"
-    android:background="#00BCD4">
+    android:background="@color/colorPrimaryDark">
 
     <Button
         android:id="@+id/buttonDesc"
@@ -15,8 +15,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="128dp"
         android:layout_marginTop="100dp"
-        android:background="#FFEB3B"
+        android:background="@null"
         android:text="Описание"
+        android:textColor="#B2DBDF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,8 +32,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="128dp"
         android:layout_marginTop="184dp"
-        android:background="#FFEB3B"
+        android:background="@null"
         android:text="Старт"
+        android:textColor="#B2DBDF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
