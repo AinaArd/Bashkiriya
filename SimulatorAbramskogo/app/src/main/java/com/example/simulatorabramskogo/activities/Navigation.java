@@ -65,7 +65,7 @@ public class Navigation extends AppCompatActivity {
         fragmentAchievements = new AchievementsFragment();
         fragmentProfile = new ProfileFragment();
 
-
+        setFragment(fragmentProfile);
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
