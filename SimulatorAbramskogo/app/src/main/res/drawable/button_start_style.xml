@@ -2,7 +2,7 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!--button default background color-->
-    <item>
+    <item android:state_pressed="false">
         <shape
             android:elevation="6dp"
             android:shape="rectangle"
@@ -11,7 +11,7 @@
             android:translationZ="4dp">
 
             <stroke
-                android:width="4dp"
+                android:width="3dp"
                 android:color="#ffffff" />
             <corners android:radius="10dp" />
             <solid android:color="@color/colorPrimaryDark" />
@@ -29,7 +29,7 @@
             android:translationZ="4dp">
 
             <stroke
-                android:width="4dp"
+                android:width="3dp"
                 android:color="@color/colorPrimaryDark" />
             <corners android:radius="10dp" />
             <solid android:color="#ffffff" />
@@ -55,3 +55,6 @@
         </shape>
     </item>
 </selector>
+
+
+
