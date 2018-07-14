@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Action;
 import com.example.simulatorabramskogo.logic.Downloader;
 
@@ -41,8 +42,8 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
 
     @Override
     public int getItemCount() {
-        return tasks.size();
-//        return 100;
+//        return tasks.size();
+        return 100;
     }
 
     @Override
@@ -63,7 +64,7 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
         public void onClick(View v) {
             // TODO what happens after clicking on a task?
             TaskDialog taskDialog = new TaskDialog();
-            taskDialog.show(getSupportFragmentManager(),"dialog");
+//            taskDialog.show(getSupportFragmentManager(),"dialog");
         }
 
         public void bindView(int position){

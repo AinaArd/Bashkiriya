@@ -38,7 +38,8 @@ public class AchAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return achievements.size();
+//        return achievements.size();
+        return 100;
     }
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
