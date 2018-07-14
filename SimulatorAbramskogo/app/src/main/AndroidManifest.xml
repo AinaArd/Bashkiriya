@@ -12,6 +12,7 @@
         <activity
             android:name=".activities.Navigation"
             android:label="@string/app_name">
+
         </activity>
         <activity android:name=".activities.StartActivity">
             <intent-filter>
@@ -21,5 +22,7 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

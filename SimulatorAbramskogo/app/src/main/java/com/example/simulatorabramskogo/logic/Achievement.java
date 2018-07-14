@@ -1,5 +1,7 @@
 package com.example.simulatorabramskogo.logic;
 
+import android.support.v4.app.Fragment;
+
 public class Achievement {
     private int id;
     private String name;

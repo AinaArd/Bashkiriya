@@ -1,5 +1,7 @@
 package com.example.simulatorabramskogo.logic;
 
+import android.os.Environment;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +21,7 @@ public class Downloader {
     private String tasks = "app\\src\\main\\java\\com\\example\\simulatorabramskogo\\logic\\files\\tasks.txt";
 
     public void download(int sleep, int mood, int authority, int markers, Achievement achievement) {
-        File dest = new File(resources);
+        File dest = new File(Environment.getExternalStorageDirectory().toString() + resources);
         FileWriter fw = null;
         try {
             fw = new FileWriter(dest);
@@ -43,9 +45,9 @@ public class Downloader {
         }
     }
 
-    public List<Achievement> getListOfAchievments() {
+    public List<Achievement> getListOfAchievements() {
         List<Achievement> listOfAchs = new ArrayList<>();
-        File file = new File(achievements);
+        File file = new File(Environment.getExternalStorageDirectory().toString() + achievements);
         try {
             FileInputStream fis = new FileInputStream(file);
             BufferedReader br = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
@@ -68,7 +70,7 @@ public class Downloader {
 
     public List<Action> getListOfTasks() {
         List<Action> listOfTasks = new ArrayList<>();
-        File file = new File(tasks);
+        File file = new File(Environment.getExternalStorageDirectory().toString() + tasks);
         try {
             FileInputStream fis = new FileInputStream(file);
             BufferedReader br = new BufferedReader(new InputStreamReader(fis, "UTF-8"));

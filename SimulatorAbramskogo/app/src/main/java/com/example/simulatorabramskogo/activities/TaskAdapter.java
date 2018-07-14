@@ -8,30 +8,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.logic.Action;
 import com.example.simulatorabramskogo.logic.Downloader;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
 /**
  * Created by ${Aina} on 12.07.2018.
  */
-public class ListAdapter extends RecyclerView.Adapter{
+public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
 
     Downloader d = new Downloader();
     List<Action> tasks;
 
-    public ListAdapter(List<Action> tasks) {
+    public TaskAdapter(List<Action> listOfTasks) {
         this.tasks = d.getListOfTasks();
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_task,parent,false);
         return new ListViewHolder(view);
     }
 
@@ -42,9 +41,12 @@ public class ListAdapter extends RecyclerView.Adapter{
 
     @Override
     public int getItemCount() {
-//        return tasks.size();
-        return 10;
+        return tasks.size();
+//        return 100;
     }
+
+    @Override
+    public void mListener() {}
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textView;
@@ -60,6 +62,8 @@ public class ListAdapter extends RecyclerView.Adapter{
         @Override
         public void onClick(View v) {
             // TODO what happens after clicking on a task?
+            TaskDialog taskDialog = new TaskDialog();
+            taskDialog.show(getSupportFragmentManager(),"dialog");
         }
 
         public void bindView(int position){
