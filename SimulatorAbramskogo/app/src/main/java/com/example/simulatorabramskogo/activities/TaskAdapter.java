@@ -61,7 +61,6 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
         @Override
         public void onClick(View v) {
             // TODO what happens after clicking on a task?
-//            taskDialog.show(getSupportFragmentManager(),"dialog");
         }
 
         public void bindView(int position){

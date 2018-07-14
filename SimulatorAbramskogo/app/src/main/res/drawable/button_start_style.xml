@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--button default background color-->
+    <item android:state_pressed="false">
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="3dp"
+                android:color="#ffffff" />
+            <corners android:radius="10dp" />
+            <solid android:color="@null" />
+
+        </shape>
+    </item>
+
+    <!--button focused state background color-->
+    <item android:state_focused="true">
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="3dp"
+                android:color="@color/colorPrimaryDark" />
+            <corners android:radius="10dp" />
+            <solid android:color="#ffffff" />
+
+        </shape>
+    </item>
+
+    <!--button pressed state background color-->
+    <item android:state_pressed="true">
+        <shape
+            android:elevation="6dp"
+            android:shape="rectangle"
+            android:stateListAnimator="@null"
+            android:tint="@null"
+            android:translationZ="4dp">
+
+            <stroke
+                android:width="4dp"
+                android:color="@color/colorPrimaryDark" />
+            <corners android:radius="10dp" />
+            <solid android:color="#ffffff" />
+
+        </shape>
+    </item>
+</selector>
+
+
+

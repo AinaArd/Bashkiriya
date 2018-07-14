@@ -5,36 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.StartActivity"
-    android:background="#00BCD4">
+    android:background="@drawable/startimage">
 
     <Button
         android:id="@+id/buttonDesc"
-        android:layout_width="114dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="152dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="100dp"
-        android:background="#FFEB3B"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="476dp"
+        android:background="@drawable/button_start_style"
+        android:gravity="center"
+        android:stateListAnimator="@null"
         android:text="Описание"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#ffffff"
+
+        android:textStyle="bold"
+        android:translationZ="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStart"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonStart"
-        android:layout_width="114dp"
-        android:layout_height="55dp"
+        android:layout_width="152dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="184dp"
-        android:background="#FFEB3B"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/button_start_style"
+        android:gravity="center"
+        android:stateListAnimator="@null"
         android:text="Старт"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:translationZ="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
