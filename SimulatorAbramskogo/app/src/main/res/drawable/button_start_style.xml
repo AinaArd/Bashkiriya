@@ -6,11 +6,12 @@
     android:insetTop="6dp">
     <ripple android:color="#ffffff">
         <item>
-            <shape android:shape="rectangle"
+            <shape
+                android:shape="rectangle"
                 android:tint="#ffffff">
-                <corners android:radius="10dp"/>
-                <solid android:color="#ffffff"/>
-                <padding android:bottom="6dp"/>
+                <corners android:radius="10dp" />
+                <solid android:color="#ffffff" />
+                <padding android:bottom="6dp" />
             </shape>
         </item>
     </ripple>
