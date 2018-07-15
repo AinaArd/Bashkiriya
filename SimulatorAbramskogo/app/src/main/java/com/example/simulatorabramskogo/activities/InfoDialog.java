@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -53,5 +54,8 @@ public class InfoDialog extends DialogFragment {
     public void onDetach() {
         super.onDetach();
         listener = null;
+    }
+
+    public void show(FragmentManager fragmentManager, String dialog) {
     }
 }
