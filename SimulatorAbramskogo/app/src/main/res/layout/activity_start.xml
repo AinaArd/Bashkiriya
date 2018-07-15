@@ -11,19 +11,32 @@
         android:id="@+id/buttonStart"
         android:layout_width="152dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="108dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="400dp"
         android:background="@drawable/button_start_style"
         android:gravity="center"
         android:stateListAnimator="@null"
-        android:text="Старт"
+        android:text="@string/start"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:translationZ="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewAbr"
+        android:layout_width="192dp"
+        android:layout_height="178dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.684"
+        app:srcCompat="@drawable/icon" />
 </android.support.constraint.ConstraintLayout>
