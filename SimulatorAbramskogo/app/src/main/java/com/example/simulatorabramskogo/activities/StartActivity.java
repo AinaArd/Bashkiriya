@@ -10,24 +10,21 @@ import com.example.simulatorabramskogo.R;
 
 public class StartActivity extends AppCompatActivity implements MyListener {
 
-    Button buttonDesc;
+    public static boolean checkIfFirstTime = true;
     Button buttonStart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
         buttonStart = findViewById(R.id.buttonStart);
-        buttonDesc = findViewById(R.id.buttonDesc);
 
-
-        buttonDesc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            if(checkIfFirstTime = true){
                 DescriptionDialog descriptionDialog = new DescriptionDialog();
                 descriptionDialog.show(getSupportFragmentManager(),"dialog");
+                checkIfFirstTime = false;
             }
-        });
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
