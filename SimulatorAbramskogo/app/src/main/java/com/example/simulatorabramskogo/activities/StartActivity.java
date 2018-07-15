@@ -25,11 +25,7 @@ public class StartActivity extends AppCompatActivity implements MyListener {
         buttonStart = findViewById(R.id.buttonStart);
         imageViewAbr = findViewById(R.id.imageViewAbr);
 
-            if(checkIfFirstTime = true){
-                DescriptionDialog descriptionDialog = new DescriptionDialog();
-                descriptionDialog.show(getSupportFragmentManager(),"dialog");
-                checkIfFirstTime = false;
-            }
+
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +34,16 @@ public class StartActivity extends AppCompatActivity implements MyListener {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(checkIfFirstTime = true){
+            DescriptionDialog descriptionDialog = new DescriptionDialog();
+            descriptionDialog.show(getSupportFragmentManager(),"dialog");
+            checkIfFirstTime = false;
+        }
     }
 
     @Override
