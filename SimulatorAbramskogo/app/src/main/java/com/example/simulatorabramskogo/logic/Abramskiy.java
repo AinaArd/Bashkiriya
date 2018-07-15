@@ -1,6 +1,12 @@
 package com.example.simulatorabramskogo.logic;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.example.simulatorabramskogo.activities.Navigation;
 import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
+import com.example.simulatorabramskogo.database.DBHelper;
+import com.example.simulatorabramskogo.database.Downloader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +25,6 @@ public class Abramskiy {
         mood = 50;
         authority = 50;
         markers = 20;
-        actions = loadActions();
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
         observers.add(new ProfileFragment());
@@ -30,12 +35,6 @@ public class Abramskiy {
             instance = new Abramskiy();
         }
         return instance;
-    }
-
-    private List<Action> loadActions() {
-        ArrayList<Action> actions = new ArrayList<>();
-        (new Downloader()).getListOfTasks();
-        return actions;
     }
 
     public void performAction(int id) {
@@ -57,14 +56,6 @@ public class Abramskiy {
         for (Observer o: observers) {
             o.update();
         }
-    }
-
-
-    public void printCurrentState() {
-        System.out.println("Sleep: " + sleep + "\n"
-                          + "Mood: " + mood + "\n"
-                          + "Authority: " + authority + "\n"
-                          + "Markers: " + markers);
     }
 
     public Integer getMarkers() {
@@ -97,5 +88,9 @@ public class Abramskiy {
 
     public void addMarkers(Integer markerPoints) {
         markers += markerPoints;
+    }
+
+    public List<Action> getActions() {
+        return actions;
     }
 }

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.logic.Achievement;
-import com.example.simulatorabramskogo.logic.Downloader;
 
 import java.util.List;
 
@@ -17,7 +16,6 @@ import java.util.List;
  * Created by ${Aina} on 13.07.2018.
  */
 public class AchAdapter extends RecyclerView.Adapter {
-    Downloader d = new Downloader();
     List<Achievement> achievements;
 
     public AchAdapter(List<Achievement> achievements) {
@@ -38,8 +36,7 @@ public class AchAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-//        return achievements.size();
-        return 100;
+        return achievements.size();
     }
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -57,15 +54,16 @@ public class AchAdapter extends RecyclerView.Adapter {
         }
 
         public void bindView(int position){
-            textView.setText(getAchievement());
+            textView.setText(getAchievementById(position).getName());
         }
 
-        public String getAchievement(){
+        public Achievement getAchievementById(int id){
             for(Achievement achievement : achievements){
-                String ach = achievement.getName();
-                return ach;
+                if (achievement.getId()- 1 == id) {
+                    return achievement;
+                }
             }
-            return "None available achievements";
+            return new Achievement(-1, "null", 0);
         }
     }
 }

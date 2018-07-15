@@ -6,6 +6,13 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
+    <ImageView
+        android:id="@+id/imageViewAch"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/achievement" />
+
     <TextView
         android:id="@+id/textViewAch"
         android:layout_width="313dp"

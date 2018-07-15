@@ -1,6 +1,7 @@
 package com.example.simulatorabramskogo.activities.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,8 +12,10 @@ import android.view.ViewGroup;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.TaskAdapter;
+import com.example.simulatorabramskogo.database.DBHelper;
+import com.example.simulatorabramskogo.database.Downloader;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Action;
-import com.example.simulatorabramskogo.logic.Downloader;
 
 import java.util.List;
 
@@ -20,9 +23,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TasksFragment extends Fragment {
-
-    Downloader downloader = new Downloader();
-    List<Action> listOfTasks = downloader.getListOfTasks();
+    List<Action> listOfTasks;
     RecyclerView recyclerView;
 
     public TasksFragment() {
@@ -34,6 +35,8 @@ public class TasksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        listOfTasks = (new Downloader(this.getContext())).getListOfActions();
+
         View view = inflater.inflate(R.layout.fragment_tasks,container,false);
         recyclerView = view.findViewById(R.id.recycleView);
 
@@ -43,5 +46,4 @@ public class TasksFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         return view;
     }
-
 }

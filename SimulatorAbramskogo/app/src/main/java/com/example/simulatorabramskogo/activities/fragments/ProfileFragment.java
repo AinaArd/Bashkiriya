@@ -1,8 +1,11 @@
 package com.example.simulatorabramskogo.activities.fragments;
 
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.database.DBHelper;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Observer;
 
@@ -39,6 +43,17 @@ public class ProfileFragment extends Fragment implements Observer {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        DBHelper helper = new DBHelper(this.getContext());
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor c = db.query("actions", null, null, null, null, null, null);
+        c.moveToFirst();
+        Log.d("tag", "id=" + c.getInt(c.getColumnIndex("id"))+
+                        "name=" + c.getString(c.getColumnIndex("name"))+
+                        "markerPoints" + c.getInt(c.getColumnIndex("markerPoints")));
+
+
+
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         abramskiy = Abramskiy.getInstance();

@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.AchAdapter;
-import com.example.simulatorabramskogo.activities.TaskAdapter;
+import com.example.simulatorabramskogo.database.Downloader;
 import com.example.simulatorabramskogo.logic.Achievement;
-import com.example.simulatorabramskogo.logic.Downloader;
 
 import java.util.List;
 
@@ -21,8 +20,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class AchievementsFragment extends Fragment {
-    Downloader downloader = new Downloader();
-    List<Achievement> listOfAchievements = downloader.getListOfAchievements();
+    List<Achievement> listOfAchievements;
     RecyclerView recyclerView;
 
     public AchievementsFragment() {
@@ -31,7 +29,8 @@ public class AchievementsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        Downloader downloader = new Downloader(this.getContext());
+        listOfAchievements = downloader.getListOfAchievements();
         View view = inflater.inflate(R.layout.fragment_achievements,container,false);
         recyclerView = view.findViewById(R.id.recycleViewAch);
 

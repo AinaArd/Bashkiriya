@@ -4,15 +4,15 @@ import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
 
 public class Action {
     private int id;
-    private static String name;
+    private  String name;
     private Integer markerPoints;
     private Integer sleepPoints;
     private Integer moodPoints;
     private Integer authorityPoints;
     private Abramskiy abramskiy;
 
-    public Action(Abramskiy abramskiy, String name, int id, Integer markerPoints, Integer sleepPoints, Integer moodPoints, Integer authorityPoints) {
-        this.abramskiy = abramskiy;
+    public Action(int id, String name, Integer sleepPoints, Integer moodPoints, Integer authorityPoints,  Integer markerPoints) {
+        this.abramskiy = Abramskiy.getInstance();
         this.id = id;
         this.name = name;
         this.markerPoints = markerPoints;
@@ -36,11 +36,10 @@ public class Action {
             abramskiy.addAuthority(authorityPoints);
             abramskiy.addMarkers(markerPoints);
             abramskiy.notifyObservers();
-            abramskiy.printCurrentState();
         }
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 }
