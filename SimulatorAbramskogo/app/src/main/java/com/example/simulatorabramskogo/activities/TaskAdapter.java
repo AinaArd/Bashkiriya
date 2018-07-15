@@ -20,11 +20,12 @@ import java.util.List;
  */
 public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
 
-
+    TaskDialogInterface tasksListener;
     List<Action> tasks;
 
-    public TaskAdapter(List<Action> listOfTasks) {
-        this.tasks = listOfTasks;
+    public TaskAdapter(TaskDialogInterface tasksListener, List<Action> tasks) {
+        this.tasksListener = tasksListener;
+        this.tasks = tasks;
     }
 
     @NonNull
@@ -47,6 +48,10 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
     @Override
     public void mListener() {}
 
+    public interface TaskDialogInterface {
+        void show();
+    }
+
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textView;
         private ImageView imageView;
@@ -61,6 +66,8 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
         @Override
         public void onClick(View v) {
             // TODO what happens after clicking on a task?
+            tasksListener.show();
+
         }
 
         public void bindView(int position){
