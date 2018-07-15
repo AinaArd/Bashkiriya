@@ -18,16 +18,7 @@ public class StartActivity extends AppCompatActivity implements MyListener {
         setContentView(R.layout.activity_start);
 
         buttonStart = findViewById(R.id.buttonStart);
-        buttonDesc = findViewById(R.id.buttonDesc);
 
-
-        buttonDesc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DescriptionDialog descriptionDialog = new DescriptionDialog();
-                descriptionDialog.show(getSupportFragmentManager(),"dialog");
-            }
-        });
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override

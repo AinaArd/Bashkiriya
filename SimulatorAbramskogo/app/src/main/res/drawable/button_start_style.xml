@@ -30,7 +30,7 @@
 
             <stroke
                 android:width="3dp"
-                android:color="@color/colorPrimaryDark" />
+                android:color="#ffffff" />
             <corners android:radius="10dp" />
             <solid android:color="#ffffff" />
 
@@ -48,7 +48,7 @@
 
             <stroke
                 android:width="4dp"
-                android:color="@color/colorPrimaryDark" />
+                android:color="#ffffff" />
             <corners android:radius="10dp" />
             <solid android:color="#ffffff" />
 
