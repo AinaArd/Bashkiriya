@@ -25,10 +25,33 @@ public class InfoDialog extends DialogFragment {
     TextView mood;
     TextView authority;
     TextView markers;
+
+
     TextView sleepPoints;
     TextView moodPoints;
     TextView authorityPoints;
     TextView markerPoints;
+
+    private int sleepP;
+    private int moodP;
+    private int authorityP;
+    private int markersP;
+
+    public void setSleepP(int sleepP) {
+        this.sleepP = sleepP;
+    }
+
+    public void setMoodP(int moodP) {
+        this.moodP = moodP;
+    }
+
+    public void setAuthorityP(int authorityP) {
+        this.authorityP = authorityP;
+    }
+
+    public void setMarkersP(int markersP) {
+        this.markersP = markersP;
+    }
 
     public TextView getSleep() {
         return sleep;
@@ -74,6 +97,7 @@ public class InfoDialog extends DialogFragment {
         markers = view.findViewById(R.id.textViewMarkers1);
 
         sleepPoints = view.findViewById(R.id.textViewSleepPoints);
+        sleepPoints.setText(sleepP+"");
         moodPoints = view.findViewById(R.id.textViewMoodPoints);
         authorityPoints = view.findViewById(R.id.textViewAuthorityPoints);
         markerPoints = view.findViewById(R.id.textViewMarkerPoints);
@@ -87,10 +111,8 @@ public class InfoDialog extends DialogFragment {
         });
         return adb.create();
 
-
-
-
     }
+
 //
 //    @Override
 //    public void onAttach(Context context) {
