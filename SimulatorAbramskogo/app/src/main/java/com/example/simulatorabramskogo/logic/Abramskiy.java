@@ -19,7 +19,7 @@ public class Abramskiy {
     private Integer markers;
     private List<Observer> observers;
 
-    private Abramskiy() {
+    public Abramskiy() {
         sleep = 50;
         mood = 50;
         authority = 50;

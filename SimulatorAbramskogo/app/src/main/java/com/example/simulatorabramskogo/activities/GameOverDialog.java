@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 
 /**
  * Created by ${Aina} on 16.07.2018.
@@ -25,6 +26,7 @@ public class GameOverDialog extends DialogFragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             // TODO обнулить все показатели, откатиться к началу
+                             Abramskiy abramskiy = new Abramskiy();
                         }
                     })
         .setNegativeButton("Нет...Я в печали", (dialog, which) -> dismiss());
