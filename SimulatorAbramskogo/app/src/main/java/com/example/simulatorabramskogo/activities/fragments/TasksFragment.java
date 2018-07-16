@@ -73,6 +73,6 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     @Override
     public void show(int id) {
         InfoDialog infoDialog = new InfoDialog();
-        
+
         infoDialog.show(getFragmentManager(), "info");    }
 }
