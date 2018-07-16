@@ -42,4 +42,20 @@ public class Action {
     public String getName() {
         return name;
     }
+
+    public Integer getMarkerPoints() {
+        return markerPoints;
+    }
+
+    public Integer getSleepPoints() {
+        return sleepPoints;
+    }
+
+    public Integer getMoodPoints() {
+        return moodPoints;
+    }
+
+    public Integer getAuthorityPoints() {
+        return authorityPoints;
+    }
 }

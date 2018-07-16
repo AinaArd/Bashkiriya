@@ -61,8 +61,18 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         return view;
     }
 
+    public Action getTaskById(int id) {
+        for (Action action : listOfTasks) {
+            if (action.getId() - 1 == id) {
+                return action;
+            }
+        }
+        return new Action(-1, "null", 0, 0, 0, 0);
+    }
+
     @Override
-    public void show() {
+    public void show(int id) {
         InfoDialog infoDialog = new InfoDialog();
+        
         infoDialog.show(getFragmentManager(), "info");    }
 }

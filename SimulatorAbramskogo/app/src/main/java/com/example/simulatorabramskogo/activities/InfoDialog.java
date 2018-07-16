@@ -13,13 +13,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.logic.Action;
 
 /**
  * Created by ${Aina} on 15.07.2018.
  */
 public class InfoDialog extends DialogFragment {
 
-//    MyListener listener;
+    //    MyListener listener;
     TextView sleep;
     TextView mood;
     TextView authority;
@@ -29,10 +30,42 @@ public class InfoDialog extends DialogFragment {
     TextView authorityPoints;
     TextView markerPoints;
 
+    public TextView getSleep() {
+        return sleep;
+    }
+
+    public TextView getMood() {
+        return mood;
+    }
+
+    public TextView getAuthority() {
+        return authority;
+    }
+
+    public TextView getMarkers() {
+        return markers;
+    }
+
+    public TextView getSleepPoints() {
+        return sleepPoints;
+    }
+
+    public TextView getMoodPoints() {
+        return moodPoints;
+    }
+
+    public TextView getAuthorityPoints() {
+        return authorityPoints;
+    }
+
+    public TextView getMarkerPoints() {
+        return markerPoints;
+    }
+
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_info,null);
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_info, null);
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
         sleep = view.findViewById(R.id.textViewSleep1);
@@ -46,13 +79,16 @@ public class InfoDialog extends DialogFragment {
         markerPoints = view.findViewById(R.id.textViewMarkerPoints);
 
 
-        adb.setTitle("Подробнее").setMessage("here should be resources").setView(view)
-                .setPositiveButton("ОК", (dialog, which) -> {
-
+        adb.setTitle("Подробнее").setView(view)
+                .setPositiveButton("Взять", (dialog, which) -> {
                         }
-//                        listener.mListener()
-                );
+                ).setNegativeButton("Не брать", (dialog, which) -> {
+                    dismiss();
+        });
         return adb.create();
+
+
+
 
     }
 //

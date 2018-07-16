@@ -39,7 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ListViewHolder
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
         holder.bindView(position);
         holder.itemView.setOnClickListener(v -> {
-            tasksListener.show();
+            tasksListener.show(position);
         });
     }
 
@@ -49,7 +49,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ListViewHolder
     }
 
     public interface TaskDialogInterface {
-        void show();
+        void show(int id);
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
