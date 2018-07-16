@@ -20,14 +20,32 @@ import com.example.simulatorabramskogo.R;
 public class InfoDialog extends DialogFragment {
 
 //    MyListener listener;
-    TextView textView;
+    TextView sleep;
+    TextView mood;
+    TextView authority;
+    TextView markers;
+    TextView sleepPoints;
+    TextView moodPoints;
+    TextView authorityPoints;
+    TextView markerPoints;
+
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_info,null);
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
-        textView = view.findViewById(R.id.textViewResources);
+        sleep = view.findViewById(R.id.textViewSleep1);
+        mood = view.findViewById(R.id.textViewMood1);
+        authority = view.findViewById(R.id.textViewAuthority1);
+        markers = view.findViewById(R.id.textViewMarkers1);
+
+        sleepPoints = view.findViewById(R.id.textViewSleepPoints);
+        moodPoints = view.findViewById(R.id.textViewMoodPoints);
+        authorityPoints = view.findViewById(R.id.textViewAuthorityPoints);
+        markerPoints = view.findViewById(R.id.textViewMarkerPoints);
+
+
         adb.setTitle("Подробнее").setMessage("here should be resources").setView(view)
                 .setPositiveButton("ОК", (dialog, which) -> {
 
