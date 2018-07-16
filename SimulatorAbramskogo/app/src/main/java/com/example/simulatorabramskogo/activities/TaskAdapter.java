@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by ${Aina} on 12.07.2018.
  */
-public class TaskAdapter extends RecyclerView.Adapter implements MyListener, View.OnClickListener{
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ListViewHolder> {
 
     TaskDialogInterface tasksListener;
     List<Action> tasks;
@@ -30,14 +30,17 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener, Vie
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_task,parent,false);
+    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_task, parent, false);
         return new ListViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((ListViewHolder)holder).bindView(position);
+    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+        holder.bindView(position);
+        holder.itemView.setOnClickListener(v -> {
+            tasksListener.show();
+        });
     }
 
     @Override
@@ -45,43 +48,26 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener, Vie
         return tasks.size();
     }
 
-    @Override
-    public void mListener() {}
-
-    @Override
-    public void onClick(View v) {
-        tasksListener.show();
-    }
-
     public interface TaskDialogInterface {
         void show();
     }
 
-    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ListViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
         private ImageView imageView;
 
-        public ListViewHolder(View itemView){
+        public ListViewHolder(View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textView1);
             imageView = itemView.findViewById(R.id.imageView1);
-            itemView.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View v) {
-            // TODO what happens after clicking on a task?
-
-
-
-        }
-
-        public void bindView(int position){
+        public void bindView(int position) {
             textView.setText(getTaskById(position).getName());
         }
 
-        public Action getTaskById(int id){
-            for(Action action : tasks){
+        public Action getTaskById(int id) {
+            for (Action action : tasks) {
                 if (action.getId() - 1 == id) {
                     return action;
                 }

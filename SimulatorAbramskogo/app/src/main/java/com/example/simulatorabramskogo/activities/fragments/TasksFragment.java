@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.simulatorabramskogo.MyListener;
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.InfoDialog;
 
@@ -39,12 +40,10 @@ import java.util.List;
 public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInterface{
     List<Action> listOfTasks;
     RecyclerView recyclerView;
-    TaskAdapter.TaskDialogInterface taskDialogInterface;
 
     public TasksFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +54,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         View view = inflater.inflate(R.layout.fragment_tasks,container,false);
         recyclerView = view.findViewById(R.id.recycleView);
 
-        TaskAdapter taskAdapter = new TaskAdapter(taskDialogInterface, listOfTasks);
+        TaskAdapter taskAdapter = new TaskAdapter(this, listOfTasks);
         recyclerView.setAdapter(taskAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -64,7 +63,6 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
 
     @Override
     public void show() {
-        InfoDialog infoDialog = (InfoDialog) InfoDialog.instantiate(getActivity(),"InfoDialog");
-        infoDialog.show(getFragmentManager(), "dialog");
-    }
+        InfoDialog infoDialog = new InfoDialog();
+        infoDialog.show(getFragmentManager(), "info");    }
 }

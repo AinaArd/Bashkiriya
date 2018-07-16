@@ -14,21 +14,25 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:background="#ffffff"
+        app:itemIconTint="@color/bottom_navigation_color"
+        app:itemTextColor="@color/bottom_navigation_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:itemIconTint="@color/bottom_navigation_color"
-        app:itemTextColor="@color/bottom_navigation_color"
         app:menu="@menu/navigation" />
 
     <LinearLayout
         android:id="@+id/framelayout"
-        android:layout_width="368dp"
-        android:layout_height="439dp"
+
         android:orientation="vertical"
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_above="@+id/navigation"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
     </LinearLayout>
