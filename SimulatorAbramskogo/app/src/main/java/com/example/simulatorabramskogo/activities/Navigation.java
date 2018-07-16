@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
@@ -19,7 +20,7 @@ public class Navigation extends AppCompatActivity {
     private TextView mTextMessage;
 
 
-    FrameLayout frameLayout;
+    LinearLayout frameLayout;
     TasksFragment fragmentTask;
     AchievementsFragment fragmentAchievements;
     ProfileFragment fragmentProfile;
