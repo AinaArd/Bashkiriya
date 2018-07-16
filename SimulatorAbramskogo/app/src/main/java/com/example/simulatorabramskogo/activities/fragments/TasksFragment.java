@@ -1,8 +1,5 @@
 package com.example.simulatorabramskogo.activities.fragments;
 
-
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,26 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.simulatorabramskogo.MyListener;
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.InfoDialog;
-
-
-
-
-
-
-
-
-
-
-
-
 import com.example.simulatorabramskogo.activities.TaskAdapter;
-import com.example.simulatorabramskogo.database.DBHelper;
 import com.example.simulatorabramskogo.database.Downloader;
-import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Action;
 
 import java.util.List;
@@ -73,6 +54,10 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     @Override
     public void show(int id) {
         InfoDialog infoDialog = new InfoDialog();
-
-        infoDialog.show(getFragmentManager(), "info");    }
+        infoDialog.setSleepP(getTaskById(id).getSleepPoints());
+        infoDialog.setMoodP((getTaskById(id).getMoodPoints()));
+        infoDialog.setAuthorityP(getTaskById(id).getAuthorityPoints());
+        infoDialog.setMarkersP(getTaskById(id).getMarkerPoints());
+        infoDialog.show(getFragmentManager(), "info");
+    }
 }
