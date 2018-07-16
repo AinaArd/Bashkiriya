@@ -1,4 +1,4 @@
-package com.example.simulatorabramskogo.logic;
+package com.example.simulatorabramskogo.activities;
 
 import android.app.AlertDialog;
 import android.os.Bundle;

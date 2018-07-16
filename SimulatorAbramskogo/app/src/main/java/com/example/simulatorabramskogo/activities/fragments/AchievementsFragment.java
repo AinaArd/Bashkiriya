@@ -14,8 +14,9 @@ import com.example.simulatorabramskogo.activities.AchAdapter;
 import com.example.simulatorabramskogo.database.Downloader;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
-import com.example.simulatorabramskogo.logic.AchievementDialog;
+import com.example.simulatorabramskogo.activities.AchievementDialog;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
+import com.example.simulatorabramskogo.logic.Action;
 
 import java.util.List;
 
@@ -25,9 +26,9 @@ import java.util.List;
 public class AchievementsFragment extends Fragment {
     List<Achievement> listOfAchievements;
     RecyclerView recyclerView;
-
-    Abramskiy abramskiy = Abramskiy.getInstance();
-    AchievementsManager achievementsManager = new AchievementsManager(abramskiy);
+    Action action;
+    AchievementsManager achievementsManager;
+    Abramskiy abramskiy;
 
     public AchievementsFragment() {
     }
@@ -44,12 +45,13 @@ public class AchievementsFragment extends Fragment {
         recyclerView.setAdapter(achAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        checkIfNewAchievementIsBeingAchieved();
+
+//        abramskiy.notifyObservers();
         return view;
     }
 
     public void checkIfNewAchievementIsBeingAchieved(){
-        if(achievementsManager.getCurrentAchievement() != achievementsManager.getNextAchievement()){
+        if(achievementsManager.getCurrentAchievement() == achievementsManager.getNextAchievement()){
             AchievementDialog achievementDialog = new AchievementDialog();
             achievementDialog.show(getFragmentManager(),"achievement");
         }

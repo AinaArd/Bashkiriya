@@ -1,7 +1,5 @@
 package com.example.simulatorabramskogo.logic;
 
-import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
-
 public class Action {
     private int id;
     private  String name;
@@ -25,11 +23,13 @@ public class Action {
         return id;
     }
 
-    public void perform() {
+    public String perform() {
+        String result = "";
         if (abramskiy.getMarkers() + markerPoints < 0) {
-            System.out.println("Sorry, out of markers");
+            result = "Sorry, out of markers";
         } else if (abramskiy.getSleep() + sleepPoints <= 0 || abramskiy.getMood() + moodPoints <= 0 || abramskiy.getAuthority() + authorityPoints <= 0) {
-            System.out.println("Game over");
+            result = "Game over";
+
         } else {
             abramskiy.addSleep(sleepPoints);
             abramskiy.addMood(moodPoints);
@@ -37,6 +37,7 @@ public class Action {
             abramskiy.addMarkers(markerPoints);
             abramskiy.notifyObservers();
         }
+        return result;
     }
 
     public String getName() {

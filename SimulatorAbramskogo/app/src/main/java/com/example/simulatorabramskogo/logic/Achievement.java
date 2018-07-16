@@ -1,6 +1,5 @@
 package com.example.simulatorabramskogo.logic;
 
-import android.support.v4.app.Fragment;
 
 public class Achievement {
     private int id;
@@ -16,8 +15,6 @@ public class Achievement {
     public int getId() {
         return id;
     }
-
-
 
     public Integer getMarkers() {
         return markers;

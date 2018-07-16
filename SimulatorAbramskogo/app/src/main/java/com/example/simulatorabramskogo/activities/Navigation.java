@@ -22,7 +22,6 @@ public class Navigation extends AppCompatActivity {
 
     private TextView mTextMessage;
 
-
     LinearLayout frameLayout;
     TasksFragment fragmentTask;
     AchievementsFragment fragmentAchievements;

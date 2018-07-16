@@ -1,11 +1,7 @@
 package com.example.simulatorabramskogo.activities.fragments;
 
-
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +10,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
-import com.example.simulatorabramskogo.database.DBHelper;
+import com.example.simulatorabramskogo.activities.AchievementDialog;
+import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.Action;
 import com.example.simulatorabramskogo.logic.Observer;
 
 /**
@@ -31,6 +29,8 @@ public class ProfileFragment extends Fragment implements Observer {
     ProgressBar progressBarSleep;
     ProgressBar progressBarMood;
     ProgressBar progressBarAuthority;
+
+    Action action;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -55,7 +55,11 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarMood = (ProgressBar) view.findViewById(R.id.progressBarMood);
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
+
         update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
+
+//        checkIfGameIsOver();
+
         return view;
     }
 
@@ -67,5 +71,10 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarAuthority.setProgress(authority);
     }
 
-
+    public void checkIfGameIsOver(){
+        if(action.perform().equals("Game over") || action.perform().equals("Sorry, out of markers")){
+            GameOverDialog gameOverDialog = new GameOverDialog();
+            gameOverDialog.show(getFragmentManager(),"game over");
+        }
+    }
 }

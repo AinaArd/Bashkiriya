@@ -1,5 +1,6 @@
 package com.example.simulatorabramskogo.activities;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -21,25 +22,22 @@ import com.example.simulatorabramskogo.logic.Action;
  * Created by ${Aina} on 15.07.2018.
  */
 public class InfoDialog extends DialogFragment {
-
-    //    MyListener listener;
     TextView sleep;
     TextView mood;
     TextView authority;
     TextView markers;
     Action action;
 
-
-    public void setAction(Action action) {
-        this.action = action;
-    }
-
     TextView sleepPoints;
     TextView moodPoints;
     TextView authorityPoints;
     TextView markerPoints;
 
+    public void setAction(Action action) {
+        this.action = action;
+    }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
@@ -52,13 +50,13 @@ public class InfoDialog extends DialogFragment {
         markers = view.findViewById(R.id.textViewMarkers1);
 
         sleepPoints = view.findViewById(R.id.textViewSleepPoints);
-        sleepPoints.setText(action.getSleepPoints()+"");
+        sleepPoints.setText(action.getSleepPoints() + "");
         moodPoints = view.findViewById(R.id.textViewMoodPoints);
-        moodPoints.setText(action.getMoodPoints()+"");
+        moodPoints.setText(action.getMoodPoints() + "");
         authorityPoints = view.findViewById(R.id.textViewAuthorityPoints);
-        authorityPoints.setText(action.getAuthorityPoints()+"");
+        authorityPoints.setText(action.getAuthorityPoints() + "");
         markerPoints = view.findViewById(R.id.textViewMarkerPoints);
-        markerPoints.setText(action.getMarkerPoints()+"");
+        markerPoints.setText(action.getMarkerPoints() + "");
 
 
         adb.setTitle("Подробнее").setView(view)
