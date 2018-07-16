@@ -17,7 +17,6 @@ public class Abramskiy {
     private Integer mood;
     private Integer authority;
     private Integer markers;
-    private List<Action> actions;
     private List<Observer> observers;
 
     private Abramskiy() {
@@ -37,24 +36,9 @@ public class Abramskiy {
         return instance;
     }
 
-    public void performAction(int id) {
-        Action action = findActionById(id);
-        action.perform();
-    }
-
-    private Action findActionById(int id) {
-        for (Action action: actions) {
-            if (action.getId() == id) {
-                return action;
-            }
-        }
-        return null;
-    }
-
-
     public void notifyObservers() {
         for (Observer o: observers) {
-            o.update();
+            o.update(sleep, mood, authority, markers);
         }
     }
 
@@ -90,7 +74,4 @@ public class Abramskiy {
         markers += markerPoints;
     }
 
-    public List<Action> getActions() {
-        return actions;
-    }
 }

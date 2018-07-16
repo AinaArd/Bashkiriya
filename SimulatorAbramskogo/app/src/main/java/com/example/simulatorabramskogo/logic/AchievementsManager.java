@@ -1,7 +1,6 @@
 package com.example.simulatorabramskogo.logic;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class AchievementsManager implements Observer {
@@ -18,7 +17,7 @@ public class AchievementsManager implements Observer {
     }
 
     @Override
-    public void update() {
+    public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
         if (abramskiy.getMarkers() >= nextAchievement.getMarkers()) {
             currentAchievement = nextAchievement;
             nextAchievement = getNextAchievement();

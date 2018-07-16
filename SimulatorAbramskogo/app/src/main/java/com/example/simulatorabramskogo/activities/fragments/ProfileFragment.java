@@ -22,9 +22,6 @@ import com.example.simulatorabramskogo.logic.Observer;
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends Fragment implements Observer {
-
-
-    private Abramskiy abramskiy;
     ImageView profilePicAdr;
     TextView sleep;
     TextView mood;
@@ -44,19 +41,9 @@ public class ProfileFragment extends Fragment implements Observer {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        DBHelper helper = new DBHelper(this.getContext());
-        SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor c = db.query("actions", null, null, null, null, null, null);
-        c.moveToFirst();
-        Log.d("tag", "id=" + c.getInt(c.getColumnIndex("id"))+
-                        "name=" + c.getString(c.getColumnIndex("name"))+
-                        "markerPoints" + c.getInt(c.getColumnIndex("markerPoints")));
-
-
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        abramskiy = Abramskiy.getInstance();
         sleep = view.findViewById(R.id.textViewSleep);
         mood = view.findViewById(R.id.textViewMood);
         authority = view.findViewById(R.id.textViewAuthority);
@@ -68,15 +55,15 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarMood = (ProgressBar) view.findViewById(R.id.progressBarMood);
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
-        update();
+        update(50, 50, 50, 20);
         return view;
     }
 
     @Override
-    public void update() {
-        markers.setText(String.valueOf(abramskiy.getMarkers()));
-        progressBarSleep.setProgress(abramskiy.getSleep());
-        progressBarMood.setProgress(abramskiy.getMood());
-        progressBarAuthority.setProgress(abramskiy.getAuthority());
+    public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
+        this.markers.setText(String.valueOf(markers));
+        progressBarSleep.setProgress(sleep);
+        progressBarMood.setProgress(mood);
+        progressBarAuthority.setProgress(authority);
     }
 }
