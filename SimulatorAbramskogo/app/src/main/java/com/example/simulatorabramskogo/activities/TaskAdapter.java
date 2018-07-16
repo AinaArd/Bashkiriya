@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by ${Aina} on 12.07.2018.
  */
-public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
+public class TaskAdapter extends RecyclerView.Adapter implements MyListener, View.OnClickListener{
 
     TaskDialogInterface tasksListener;
     List<Action> tasks;
@@ -48,6 +48,11 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
     @Override
     public void mListener() {}
 
+    @Override
+    public void onClick(View v) {
+        tasksListener.show();
+    }
+
     public interface TaskDialogInterface {
         void show();
     }
@@ -66,8 +71,7 @@ public class TaskAdapter extends RecyclerView.Adapter implements MyListener{
         @Override
         public void onClick(View v) {
             // TODO what happens after clicking on a task?
-        /*    InfoDialog infoDialog = (InfoDialog) InfoDialog.instantiate(getActivity(),"InfoDialog");
-            infoDialog.show(getFragmentManager(), "dialog");*/
+
 
 
         }

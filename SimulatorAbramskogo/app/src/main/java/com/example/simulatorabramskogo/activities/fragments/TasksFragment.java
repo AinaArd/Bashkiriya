@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TasksFragment extends Fragment{
+public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInterface{
     List<Action> listOfTasks;
     RecyclerView recyclerView;
     TaskAdapter.TaskDialogInterface taskDialogInterface;
@@ -48,5 +48,11 @@ public class TasksFragment extends Fragment{
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         return view;
+    }
+
+    @Override
+    public void show() {
+        InfoDialog infoDialog = (InfoDialog) InfoDialog.instantiate(getActivity(),"InfoDialog");
+        infoDialog.show(getFragmentManager(), "dialog");
     }
 }
