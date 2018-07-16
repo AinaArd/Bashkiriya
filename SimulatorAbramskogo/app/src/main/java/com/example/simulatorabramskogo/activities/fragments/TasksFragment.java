@@ -14,6 +14,18 @@ import android.view.ViewGroup;
 import com.example.simulatorabramskogo.MyListener;
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.InfoDialog;
+
+
+
+
+
+
+
+
+
+
+
+
 import com.example.simulatorabramskogo.activities.TaskAdapter;
 import com.example.simulatorabramskogo.database.DBHelper;
 import com.example.simulatorabramskogo.database.Downloader;

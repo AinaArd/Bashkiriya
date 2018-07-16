@@ -21,8 +21,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/framelayout"
+
+        android:orientation="vertical"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_above="@+id/navigation"
@@ -32,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
-    </FrameLayout>
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
