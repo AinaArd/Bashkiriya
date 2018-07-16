@@ -55,7 +55,7 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarMood = (ProgressBar) view.findViewById(R.id.progressBarMood);
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
-        update(50, 50, 50, 20);
+        update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
         return view;
     }
 

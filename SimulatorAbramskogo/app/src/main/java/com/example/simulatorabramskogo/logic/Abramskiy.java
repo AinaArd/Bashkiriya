@@ -38,8 +38,24 @@ public class Abramskiy {
 
     public void notifyObservers() {
         for (Observer o: observers) {
-            o.update(sleep, mood, authority, markers);
+//            o.update(sleep, mood, authority, markers);
         }
+    }
+
+    public void setSleep(Integer sleep) {
+        this.sleep = sleep;
+    }
+
+    public void setMood(Integer mood) {
+        this.mood = mood;
+    }
+
+    public void setAuthority(Integer authority) {
+        this.authority = authority;
+    }
+
+    public void setMarkers(Integer markers) {
+        this.markers = markers;
     }
 
     public Integer getMarkers() {

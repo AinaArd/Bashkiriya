@@ -54,10 +54,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     @Override
     public void show(int id) {
         InfoDialog infoDialog = new InfoDialog();
-        infoDialog.setSleepP(getTaskById(id).getSleepPoints());
-        infoDialog.setMoodP((getTaskById(id).getMoodPoints()));
-        infoDialog.setAuthorityP(getTaskById(id).getAuthorityPoints());
-        infoDialog.setMarkersP(getTaskById(id).getMarkerPoints());
+        infoDialog.setAction(getTaskById(id));
         infoDialog.show(getFragmentManager(), "info");
     }
 }
