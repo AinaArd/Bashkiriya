@@ -13,6 +13,7 @@ public class AchievementsManager implements Observer {
         this.abramskiy = abramskiy;
         achievemets = new ArrayList<>();
         achievemets.add(new Achievement(1, "name", 1));
+        currentAchievement = achievemets.get(0);
         nextAchievement = achievemets.get(0);
     }
 
@@ -36,5 +37,9 @@ public class AchievementsManager implements Observer {
             }
         }
         return null;
+    }
+
+    public Achievement getCurrentAchievement() {
+        return currentAchievement;
     }
 }

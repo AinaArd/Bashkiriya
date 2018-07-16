@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.simulatorabramskogo.logic.Abramskiy;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -12,30 +14,29 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table actions("
-                +"id integer primary key autoincrement,"
-                +"name text,"
-                +"sleepPoints integer,"
-                +"moodPoints integer,"
-                +"authorityPoints integer,"
-                +"markerPoints integer"
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "sleepPoints integer,"
+                + "moodPoints integer,"
+                + "authorityPoints integer,"
+                + "markerPoints integer"
                 + ");");
         sqLiteDatabase.execSQL("create table achievements("
-                +"id integer primary key autoincrement,"
-                +"name text,"
-                +"markers integer"+
-        ");");
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "markers integer" +
+                ");");
 
         sqLiteDatabase.execSQL("create table memory("
-                +"id integer primary key autoincrement,"
-                +"markers integer,"
-                +"sleep integer,"
-                +"mood integer,"
-                +"authority integer,"
-                +"achievement integer" +
+                + "id integer primary key autoincrement,"
+                + "markers integer,"
+                + "sleep integer,"
+                + "mood integer,"
+                + "authority integer,"
+                + "achievement integer" +
                 ");");
 
         loadActions(sqLiteDatabase);
@@ -53,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private void insertAchievement(String values, SQLiteDatabase db) {
         String s = "insert into achievements(name, markers) values";
-        db.execSQL(s + "(" + values + ")" );
+        db.execSQL(s + "(" + values + ")");
     }
 
     private void loadActions(SQLiteDatabase db) {
@@ -78,11 +79,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private void insertAction(String values, SQLiteDatabase db) {
         String s = "insert into actions(name, markerPoints, sleepPoints, moodPoints, authorityPoints) values";
-        db.execSQL(s + "(" + values + ")" );
+        db.execSQL(s + "(" + values + ")");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
 }

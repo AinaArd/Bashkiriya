@@ -14,6 +14,9 @@ import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
 import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
 import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
+import com.example.simulatorabramskogo.database.DBHelper;
+import com.example.simulatorabramskogo.database.Downloader;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 
 public class Navigation extends AppCompatActivity {
 
@@ -70,6 +73,13 @@ public class Navigation extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    protected void onStop() {
+        Downloader downloader = new Downloader(this);
+        downloader.saveInfo(Abramskiy.getInstance());
+        super.onStop();
     }
 
 }

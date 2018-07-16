@@ -74,4 +74,13 @@ public class Abramskiy {
         markers += markerPoints;
     }
 
+    public AchievementsManager getAchievementsManager() {
+        for (Observer observer: observers) {
+            if (observer instanceof AchievementsManager) {
+                return (AchievementsManager) observer;
+            }
+        }
+        return null;
+    }
+
 }

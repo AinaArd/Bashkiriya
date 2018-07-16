@@ -66,4 +66,6 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarMood.setProgress(mood);
         progressBarAuthority.setProgress(authority);
     }
+
+
 }

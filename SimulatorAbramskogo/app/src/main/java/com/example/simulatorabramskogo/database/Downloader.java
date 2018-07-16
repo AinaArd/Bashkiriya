@@ -3,6 +3,7 @@ package com.example.simulatorabramskogo.database;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
 import com.example.simulatorabramskogo.logic.Action;
 
@@ -62,4 +63,14 @@ public class Downloader {
         }
         return achievements;
     }
+    public void saveInfo(Abramskiy abramskiy) {
+        helper.getReadableDatabase().execSQL("replace into memory(markers, sleep, mood, authority, achievement) " +
+                "values (" +
+                abramskiy.getMarkers() + "," +
+                abramskiy.getSleep() + "," +
+                abramskiy.getMarkers() + "," +
+                abramskiy.getAuthority() + "," +
+                abramskiy.getAchievementsManager().getCurrentAchievement().getId() + ")");
+    }
 }
+
