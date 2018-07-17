@@ -48,11 +48,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     private void loadInfo(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("insert into memory(markers, sleep, mood, authority, achievement, firsttime) values (50, 50, 50, 50, 1, 1)");
+        sqLiteDatabase.execSQL("insert into memory(markers, sleep, mood, authority, achievement, firsttime) values (20, 50, 50, 50, 1, 1)");
     }
 
     private void loadAchievements(SQLiteDatabase db) {
-        insertAchievement("'Выспаться', 20, 0", db);
+        insertAchievement("'Выспаться', 50, 0", db);
         insertAchievement("'Стать куратором первой группы', 1000, 0", db);
         insertAchievement("'Не опоздать на пару', 1500, 0", db);
         insertAchievement("'Выпустить бакалавров', 2000, 0", db);

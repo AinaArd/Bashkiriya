@@ -6,6 +6,7 @@ import android.database.Cursor;
 import com.example.simulatorabramskogo.activities.StartActivity;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
+import com.example.simulatorabramskogo.logic.AchievementsManager;
 import com.example.simulatorabramskogo.logic.Action;
 
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class Downloader {
                                                                 "sleep=" + abramskiy.getSleep() + "," +
                                                                 "mood=" + abramskiy.getMood() + "," +
                                                                 "authority=" + abramskiy.getAuthority() + "," +
-                                                                "achievement=" + abramskiy.getAchievementsManager().getCurrentAchievement().getId() +
+                                                                "achievement=" + AchievementsManager.getInstance().getCurrentAchievement().getId() +
                                                                 " where id=1");
 
 

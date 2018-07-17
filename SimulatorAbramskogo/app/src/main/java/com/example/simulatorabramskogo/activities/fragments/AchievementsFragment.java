@@ -14,7 +14,6 @@ import com.example.simulatorabramskogo.activities.AchAdapter;
 import com.example.simulatorabramskogo.database.Downloader;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
-import com.example.simulatorabramskogo.activities.AchievementDialog;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
 import com.example.simulatorabramskogo.logic.Observer;
 
@@ -28,7 +27,6 @@ public class AchievementsFragment extends Fragment implements Observer {
     List<Achievement> listOfAchievements;
     RecyclerView recyclerView;
 
-    AchievementsManager achievementsManager = new AchievementsManager();
     Achievement currentAchievement;
     Achievement nextAchievement;
 
@@ -56,65 +54,11 @@ public class AchievementsFragment extends Fragment implements Observer {
 
     @Override
     public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
-        if (Abramskiy.getInstance().getMarkers() >= achievementsManager.getNextAchievement().getMarkers()) {
-            achievementsManager.setNextAchievement(currentAchievement);
-            nextAchievement = achievementsManager.getNextAchievement(nextAchievement);
-
-            AchievementDialog achievementDialog = new AchievementDialog();
-            achievementDialog.show(getFragmentManager(), "achievement");
-
-            System.out.println("You achieved: " + currentAchievement.getName());
-            if (nextAchievement == null) {
-                //TODO dialog about winning
-            }
+        if (Abramskiy.getInstance().getMarkers() >= AchievementsManager.getInstance().getNextAchievement().getMarkers()) {
+            AchievementsManager.getInstance().setNextAchievement(currentAchievement);
+            nextAchievement = AchievementsManager.getInstance().getNextAchievement(nextAchievement);
+            //ToDo update
         }
     }
 
-    /* static final String achNumber = "number of achievement";
-
-    TextView textView;
-
-    Downloader d = new Downloader();
-    List<Achievement> achievements = d.getListOfAchievements();
-
-    public static AchievementsFragment newInstance(int i) {
-        Bundle args = new Bundle();
-//        args.putInt(achNumber,getIdInEachAch());
-        AchievementsFragment fragment = new AchievementsFragment();
-//        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public AchievementsFragment() {
-        // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_achievements, container, false);
-        textView.setText(getAchievement());
-        ViewPager viewPager = view.findViewById(R.id.viewPager);
-        viewPager.setAdapter(
-                new PagerAdapter(getFragmentManager(), (List<Achievement>) AchievementsFragment.this));
-
-        return view;
-    }
-
-    public int getIdInEachAch() {
-        for (Achievement ach : achievements) {
-            int id = ach.getId();
-            return id;
-        }
-        return 0;
-    }
-
-    public String getAchievement() {
-        for (Achievement achievement : achievements) {
-            String ach = achievement.getName();
-            return ach;
-        }
-        return "None available achievements";
-    }*/
 }

@@ -17,7 +17,6 @@ public class Abramskiy {
     private Integer mood;
     private Integer authority;
     private Integer markers;
-    private List<Observer> observers;
 
     public Abramskiy() {
         List<Integer> listOfInfo = (new Downloader()).getListOfInfo();
@@ -25,8 +24,6 @@ public class Abramskiy {
         sleep = listOfInfo.get(1);
         mood = listOfInfo.get(2);
         authority = listOfInfo.get(3);
-        observers = new ArrayList<>();
-        observers.add(new AchievementsManager());
     }
 
     public static Abramskiy getInstance() {
@@ -36,11 +33,6 @@ public class Abramskiy {
         return instance;
     }
 
-    public void notifyObservers() {
-        for (Observer o : observers) {
-            o.update(sleep, mood, authority, markers);
-        }
-    }
 
     public void setSleep(Integer sleep) {
         this.sleep = sleep;
@@ -90,13 +82,6 @@ public class Abramskiy {
         markers += markerPoints;
     }
 
-    public AchievementsManager getAchievementsManager() {
-        for (Observer observer : observers) {
-            if (observer instanceof AchievementsManager) {
-                return (AchievementsManager) observer;
-            }
-        }
-        return null;
-    }
+
 
 }

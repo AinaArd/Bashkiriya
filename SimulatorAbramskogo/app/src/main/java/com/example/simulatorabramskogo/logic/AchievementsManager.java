@@ -8,28 +8,29 @@ import com.example.simulatorabramskogo.database.Downloader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AchievementsManager implements Observer {
+public class AchievementsManager {
+    private static AchievementsManager instance;
     private List<Achievement> achievements;
     private Achievement currentAchievement;
     private Achievement nextAchievement;
 
-    public AchievementsManager() {
+    private AchievementsManager() {
         achievements = (new Downloader()).getListOfAchievements();
         Log.d("SIZE", String.valueOf(achievements.size()));
         nextAchievement = achievements.get(0);
     }
 
-    @Override
-    public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
-        if (Abramskiy.getInstance().getMarkers() >= nextAchievement.getMarkers()) {
-            currentAchievement = nextAchievement;
-            nextAchievement = getNextAchievement(nextAchievement);
-            //TODO dialog about next achievement
-            System.out.println("You achieved: " + currentAchievement.getName());
-            if (nextAchievement == null) {
-                //TODO dialog about winning
-            }
+    public static AchievementsManager getInstance() {
+        if (instance == null) {
+            instance = new AchievementsManager();
         }
+        return instance;
+    }
+
+    public void update() {
+        currentAchievement = nextAchievement;
+        nextAchievement = getNextAchievement(nextAchievement);
+
     }
 
     public Achievement getNextAchievement() {

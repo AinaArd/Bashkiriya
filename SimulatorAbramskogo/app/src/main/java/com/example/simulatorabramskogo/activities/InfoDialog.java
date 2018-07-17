@@ -16,8 +16,11 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.Achievement;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
 import com.example.simulatorabramskogo.logic.Action;
+
+import java.sql.SQLOutput;
 
 /**
  * Created by ${Aina} on 15.07.2018.
@@ -66,7 +69,9 @@ public class InfoDialog extends DialogFragment {
                                 NotEnoughMarkersDialog markersDialog = new NotEnoughMarkersDialog();
                                 markersDialog.show(getFragmentManager(), "resources");
                             } else {
+                                System.out.println("PERFORMED");
                                 action.perform();
+                                checkNewAction();
                             }
                         }
                 ).setNegativeButton("Отмена", (dialog, which) -> {
@@ -74,6 +79,19 @@ public class InfoDialog extends DialogFragment {
         });
         return adb.create();
 
+    }
+
+    private void checkNewAction() {
+        System.out.println(Abramskiy.getInstance().getMarkers() + ">" + AchievementsManager.getInstance().getNextAchievement().getMarkers());
+        System.out.println("ACHIEVED");
+        if (Abramskiy.getInstance().getMarkers() > AchievementsManager.getInstance().getNextAchievement().getMarkers()) {
+            System.out.println("DIALOG CALLED");
+            //ToDo update viewPager
+            AchievementDialog dialog = new AchievementDialog();
+            dialog.setAchievement(AchievementsManager.getInstance().getNextAchievement());
+            dialog.show(getFragmentManager(), "achievement");
+            AchievementsManager.getInstance().update();
+        }
     }
 
 }
