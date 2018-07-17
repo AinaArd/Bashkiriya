@@ -67,6 +67,8 @@ public class PageFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
+        next = manager.getAchievements().get(pageNumber);
         if (Abramskiy.getInstance().getMarkers()>=next.getMarkers()) next.setAchieved(true);
         update();
     }
