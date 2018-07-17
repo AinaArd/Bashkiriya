@@ -37,7 +37,7 @@
             android:id="@+id/textViewSleepPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="TextView" />
     </LinearLayout>
 
@@ -71,7 +71,7 @@
             android:id="@+id/textViewMoodPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="TextView" />
 
     </LinearLayout>
@@ -106,7 +106,7 @@
             android:id="@+id/textViewAuthorityPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="TextView" />
     </LinearLayout>
 
@@ -142,7 +142,7 @@
             android:id="@+id/textViewMarkerPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:text="TextView"
             />
 

@@ -30,7 +30,6 @@ public class ProfileFragment extends Fragment implements Observer {
     ProgressBar progressBarMood;
     ProgressBar progressBarAuthority;
 
-    Action action;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -58,7 +57,7 @@ public class ProfileFragment extends Fragment implements Observer {
 
         update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
-//        checkIfGameIsOver();
+        checkIfGameIsOver();
 
         return view;
     }
@@ -72,7 +71,7 @@ public class ProfileFragment extends Fragment implements Observer {
     }
 
     public void checkIfGameIsOver(){
-        if(action.perform().equals("Game over") || action.perform().equals("Sorry, out of markers")){
+        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0 || Abramskiy.getInstance().getMarkers() == 0){
             GameOverDialog gameOverDialog = new GameOverDialog();
             gameOverDialog.show(getFragmentManager(),"game over");
         }

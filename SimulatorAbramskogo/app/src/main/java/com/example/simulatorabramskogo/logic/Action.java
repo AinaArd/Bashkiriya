@@ -23,12 +23,11 @@ public class Action {
         return id;
     }
 
-    public String perform() {
-        String result = "";
+    public void perform() {
         if (abramskiy.getMarkers() + markerPoints < 0) {
-            result = "Sorry, out of markers";
+            System.out.println("Sorry, out of markers");
         } else if (abramskiy.getSleep() + sleepPoints <= 0 || abramskiy.getMood() + moodPoints <= 0 || abramskiy.getAuthority() + authorityPoints <= 0) {
-            result = "Game over";
+            System.out.println("Game over");
 
         } else {
             abramskiy.addSleep(sleepPoints);
@@ -37,7 +36,6 @@ public class Action {
             abramskiy.addMarkers(markerPoints);
             abramskiy.notifyObservers();
         }
-        return result;
     }
 
     public String getName() {

@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.activities.InfoDialog;
 import com.example.simulatorabramskogo.activities.TaskAdapter;
 import com.example.simulatorabramskogo.database.Downloader;
+import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Action;
 
 import java.util.List;
@@ -39,6 +41,9 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         recyclerView.setAdapter(taskAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        checkIfGameIsOver();
+
         return view;
     }
 
@@ -56,5 +61,12 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         InfoDialog infoDialog = new InfoDialog();
         infoDialog.setAction(getTaskById(id));
         infoDialog.show(getFragmentManager(), "info");
+    }
+
+    public void checkIfGameIsOver(){
+        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0 || Abramskiy.getInstance().getMarkers() == 0){
+            GameOverDialog gameOverDialog = new GameOverDialog();
+            gameOverDialog.show(getFragmentManager(),"game over");
+        }
     }
 }

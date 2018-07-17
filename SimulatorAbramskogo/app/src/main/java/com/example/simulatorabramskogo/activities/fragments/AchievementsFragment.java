@@ -50,12 +50,13 @@ public class AchievementsFragment extends Fragment {
         return view;
     }
 
-    public void checkIfNewAchievementIsBeingAchieved(){
-        if(achievementsManager.getCurrentAchievement() == achievementsManager.getNextAchievement()){
+    /*public void checkIfNewAchievementIsBeingAchieved(){
+    // TODO check that achievement is achieved
+        if(){
             AchievementDialog achievementDialog = new AchievementDialog();
             achievementDialog.show(getFragmentManager(),"achievement");
         }
-    }
+    }*/
 
     /* static final String achNumber = "number of achievement";
 
