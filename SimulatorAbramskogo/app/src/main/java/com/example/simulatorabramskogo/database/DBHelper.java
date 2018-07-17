@@ -84,7 +84,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void insertAction(String values, SQLiteDatabase db) {
-        String s = "insert into actions(name, markerPoints, sleepPoints, moodPoints, authorityPoints) values";
+        String s = "insert into actions(name, sleepPoints, moodPoints, authorityPoints, markerPoints) values";
         db.execSQL(s + "(" + values + ")");
     }
 
