@@ -53,11 +53,13 @@ public class Downloader {
             int idColIndex = cursor.getColumnIndex("id");
             int nameColIndex = cursor.getColumnIndex("name");
             int markerColIndex = cursor.getColumnIndex("markers");
+            int achievedColIndex = cursor.getColumnIndex("achieved");
 
             do {
                 achievements.add(new Achievement(cursor.getInt(idColIndex),
                         cursor.getString(nameColIndex),
-                        cursor.getInt(markerColIndex)
+                        cursor.getInt(markerColIndex),
+                        cursor.getInt(nameColIndex) == 1
                 ));
             } while (cursor.moveToNext());
 

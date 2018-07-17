@@ -5,11 +5,13 @@ public class Achievement {
     private int id;
     private String name;
     private Integer markers;
+    private boolean achieved;
 
-    public Achievement(int id, String name, Integer markers) {
+    public Achievement(int id, String name, Integer markers, boolean achieved) {
         this.id = id;
         this.name = name;
         this.markers = markers;
+        this.achieved = achieved;
     }
 
     public int getId() {

@@ -63,7 +63,7 @@ public class AchAdapter extends RecyclerView.Adapter {
                     return achievement;
                 }
             }
-            return new Achievement(-1, "null", 0);
+            return new Achievement(-1, "null", 0, false);
         }
     }
 }

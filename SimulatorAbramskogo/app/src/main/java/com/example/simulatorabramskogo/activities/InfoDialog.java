@@ -59,35 +59,15 @@ public class InfoDialog extends DialogFragment {
         markerPoints.setText(action.getMarkerPoints() + "");
 
 
-        adb.setTitle("Подробнее").setView(view)
-                .setPositiveButton("Взять", (dialog, which) -> {
+        adb.setTitle(action.getName()).setView(view)
+                .setPositiveButton("Выполнить", (dialog, which) -> {
                             action.perform();
                         }
-                ).setNegativeButton("Не брать", (dialog, which) -> {
+                ).setNegativeButton("Отмена", (dialog, which) -> {
             dismiss();
         });
         return adb.create();
 
     }
 
-//
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof StartActivity) {
-//            listener = (MyListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragment1DataListener");
-//        }
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        listener = null;
-//    }
-//
-//    public void show(FragmentManager fragmentManager, String dialog) {
-//    }
 }

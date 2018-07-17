@@ -27,7 +27,8 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table achievements("
                 + "id integer primary key autoincrement,"
                 + "name text,"
-                + "markers integer" +
+                + "markers integer,"
+                + "achieved integer" +
                 ");");
 
         sqLiteDatabase.execSQL("create table memory("
@@ -50,16 +51,16 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void loadAchievements(SQLiteDatabase db) {
-        insertAchievement("'Выспаться', 20", db);
-        insertAchievement("'Стать куратором первой группы', 1000", db);
-        insertAchievement("'Не опоздать на пару', 1500", db);
-        insertAchievement("'Выпустить бакалавров', 2000", db);
-        insertAchievement("'Попасть на календарь КФУ', 2500", db);
-        insertAchievement("'Стать лучшим молодым преподавателем', 3000", db);
+        insertAchievement("'Выспаться', 20, 0", db);
+        insertAchievement("'Стать куратором первой группы', 1000, 0", db);
+        insertAchievement("'Не опоздать на пару', 1500, 0", db);
+        insertAchievement("'Выпустить бакалавров', 2000, 0", db);
+        insertAchievement("'Попасть на календарь КФУ', 2500, 0", db);
+        insertAchievement("'Стать лучшим молодым преподавателем', 3000, 0", db);
     }
 
     private void insertAchievement(String values, SQLiteDatabase db) {
-        String s = "insert into achievements(name, markers) values";
+        String s = "insert into achievements(name, markers, achieved) values";
         db.execSQL(s + "(" + values + ")");
     }
 

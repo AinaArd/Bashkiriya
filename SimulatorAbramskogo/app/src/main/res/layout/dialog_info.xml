@@ -9,7 +9,7 @@
         android:id="@+id/sleepLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +24,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:text="Сон"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +36,13 @@
 
         <TextView
             android:id="@+id/textViewSleepPoints"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="TextView" />
     </LinearLayout>
@@ -53,12 +59,13 @@
 
         <TextView
             android:id="@+id/textViewMood1"
-            android:layout_width="wrap_content"
+            android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:text="Настроение"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,8 +76,9 @@
 
         <TextView
             android:id="@+id/textViewMoodPoints"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="TextView" />
 
@@ -88,12 +96,13 @@
 
         <TextView
             android:id="@+id/textViewAuthority1"
-            android:layout_width="wrap_content"
+            android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_weight="1"
             android:text="Авторитет"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -104,8 +113,9 @@
 
         <TextView
             android:id="@+id/textViewAuthorityPoints"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="TextView" />
     </LinearLayout>
@@ -124,13 +134,14 @@
 
         <TextView
             android:id="@+id/textViewMarkers1"
-            android:layout_width="wrap_content"
+            android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Фломастеры"
+            android:layout_weight="1"
+            android:text="Маркеры"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -140,11 +151,11 @@
 
         <TextView
             android:id="@+id/textViewMarkerPoints"
-            android:layout_width="match_parent"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="TextView"
-            />
+            android:layout_weight="1"
+            android:text="TextView" />
 
     </LinearLayout>
 
