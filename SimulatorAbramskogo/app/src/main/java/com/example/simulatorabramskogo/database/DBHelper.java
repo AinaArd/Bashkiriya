@@ -36,11 +36,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "sleep integer,"
                 + "mood integer,"
                 + "authority integer,"
-                + "achievement integer" +
+                + "achievement integer," +
+                "firsttime integer" +
                 ");");
 
         loadActions(sqLiteDatabase);
         loadAchievements(sqLiteDatabase);
+        loadInfo(sqLiteDatabase);
+    }
+
+    private void loadInfo(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("insert into memory(markers, sleep, mood, authority, achievement, firsttime) values (100, 50, 50, 50, 1, 1)");
     }
 
     private void loadAchievements(SQLiteDatabase db) {

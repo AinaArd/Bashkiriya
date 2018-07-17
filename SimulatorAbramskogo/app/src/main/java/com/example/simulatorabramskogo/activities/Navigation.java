@@ -76,10 +76,10 @@ public class Navigation extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        Downloader downloader = new Downloader(this);
+    protected void onPause() {
+        Downloader downloader = new Downloader();
         downloader.saveInfo(Abramskiy.getInstance());
-        super.onStop();
+        super.onPause();
     }
 
 }

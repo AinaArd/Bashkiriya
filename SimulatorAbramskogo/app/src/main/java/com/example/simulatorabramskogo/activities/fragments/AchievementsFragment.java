@@ -38,7 +38,7 @@ public class AchievementsFragment extends Fragment implements Observer {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Downloader downloader = new Downloader(this.getContext());
+        Downloader downloader = new Downloader();
         listOfAchievements = downloader.getListOfAchievements();
         View view = inflater.inflate(R.layout.fragment_achievements, container, false);
         recyclerView = view.findViewById(R.id.recycleViewAch);

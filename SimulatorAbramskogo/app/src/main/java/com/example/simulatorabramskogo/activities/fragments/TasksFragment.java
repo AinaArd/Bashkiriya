@@ -32,7 +32,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        listOfTasks = (new Downloader(this.getContext())).getListOfActions();
+        listOfTasks = (new Downloader()).getListOfActions();
 
         View view = inflater.inflate(R.layout.fragment_tasks,container,false);
         recyclerView = view.findViewById(R.id.recycleView);

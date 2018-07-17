@@ -20,10 +20,15 @@ public class Abramskiy {
     private List<Observer> observers;
 
     public Abramskiy() {
-        sleep = 50;
-        mood = 50;
-        authority = 50;
-        markers = 20;
+//        sleep = 50;
+//        mood = 50;
+//        authority = 50;
+//        markers = 20;
+        List<Integer> listOfInfo = (new Downloader()).getListOfInfo();
+        markers = listOfInfo.get(0);
+        sleep = listOfInfo.get(1);
+        mood = listOfInfo.get(2);
+        authority = listOfInfo.get(3);
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
         observers.add(new ProfileFragment());
@@ -37,7 +42,7 @@ public class Abramskiy {
     }
 
     public void notifyObservers() {
-        for (Observer o: observers) {
+        for (Observer o : observers) {
 //            o.update(sleep, mood, authority, markers);
         }
     }
@@ -91,7 +96,7 @@ public class Abramskiy {
     }
 
     public AchievementsManager getAchievementsManager() {
-        for (Observer observer: observers) {
+        for (Observer observer : observers) {
             if (observer instanceof AchievementsManager) {
                 return (AchievementsManager) observer;
             }
