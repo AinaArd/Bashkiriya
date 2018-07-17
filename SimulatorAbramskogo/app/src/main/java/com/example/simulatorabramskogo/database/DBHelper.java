@@ -3,7 +3,6 @@ package com.example.simulatorabramskogo.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.example.simulatorabramskogo.logic.Abramskiy;
 
@@ -37,25 +36,15 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "sleep integer,"
                 + "mood integer,"
                 + "authority integer,"
-                + "achievement integer,"
-                + "firsttime integer" +
+                + "achievement integer" +
                 ");");
 
         loadActions(sqLiteDatabase);
         loadAchievements(sqLiteDatabase);
-        loadInfo(sqLiteDatabase);
-        Log.d("This is", "onCreate");
-    }
-
-
-
-    private void loadInfo(SQLiteDatabase sqLiteDatabase) {
-        Log.d("This is", "load info");
-        sqLiteDatabase.execSQL("insert into memory(markers, sleep, mood, authority, achievement, firsttime) values (100, 50, 50, 50, 1, 1)");
     }
 
     private void loadAchievements(SQLiteDatabase db) {
-        insertAchievement("'Выспаться', 500", db);
+        insertAchievement("'Выспаться', 20", db);
         insertAchievement("'Стать куратором первой группы', 1000", db);
         insertAchievement("'Не опоздать на пару', 1500", db);
         insertAchievement("'Выпустить бакалавров', 2000", db);

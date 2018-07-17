@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
-import com.example.simulatorabramskogo.activities.fragments.PagerFragment;
 import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
 import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
 import com.example.simulatorabramskogo.database.DBHelper;
@@ -26,7 +24,7 @@ public class Navigation extends AppCompatActivity {
 
     LinearLayout frameLayout;
     TasksFragment fragmentTask;
-    PagerFragment fragmentAchievements;
+    AchievementsFragment fragmentAchievements;
     ProfileFragment fragmentProfile;
 
 
@@ -67,7 +65,7 @@ public class Navigation extends AppCompatActivity {
 
         frameLayout = findViewById(R.id.framelayout);
         fragmentTask = new TasksFragment();
-        fragmentAchievements = new PagerFragment();
+        fragmentAchievements = new AchievementsFragment();
         fragmentProfile = new ProfileFragment();
 
         setFragment(fragmentProfile);
@@ -77,11 +75,10 @@ public class Navigation extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        Downloader downloader = new Downloader();
-        Log.d("SAVED", "INFO");
+    protected void onStop() {
+        Downloader downloader = new Downloader(this);
         downloader.saveInfo(Abramskiy.getInstance());
-        super.onPause();
+        super.onStop();
     }
 
 }

@@ -10,10 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
-import com.example.simulatorabramskogo.activities.AchievementDialog;
 import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.logic.Abramskiy;
-import com.example.simulatorabramskogo.logic.Action;
 import com.example.simulatorabramskogo.logic.Observer;
 
 /**
@@ -55,7 +53,7 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
 
-        update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
+        update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
         checkIfGameIsOver();
 

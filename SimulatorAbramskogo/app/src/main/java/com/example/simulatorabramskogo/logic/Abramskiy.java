@@ -20,15 +20,10 @@ public class Abramskiy {
     private List<Observer> observers;
 
     public Abramskiy() {
-//        sleep = 50;
-//        mood = 50;
-//        authority = 50;
-//        markers = 20;
-        List<Integer> listOfInfo = (new Downloader()).getListOfInfo();
-        markers = listOfInfo.get(0);
-        sleep = listOfInfo.get(1);
-        mood = listOfInfo.get(2);
-        authority = listOfInfo.get(3);
+        sleep = 50;
+        mood = 50;
+        authority = 50;
+        markers = 20;
         observers = new ArrayList<>();
         observers.add(new AchievementsManager(this));
         observers.add(new ProfileFragment());

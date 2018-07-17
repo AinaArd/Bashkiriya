@@ -1,6 +1,5 @@
 package com.example.simulatorabramskogo.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.simulatorabramskogo.R;
-import com.example.simulatorabramskogo.database.Downloader;
 
 public class StartActivity extends AppCompatActivity implements MyListener {
-    private static Context context;
+
+    public static boolean checkIfFirstTime = true;
     Button buttonStart;
     ImageView imageViewAbr;
 
@@ -22,7 +21,7 @@ public class StartActivity extends AppCompatActivity implements MyListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-        context = getApplicationContext();
+
         buttonStart = findViewById(R.id.buttonStart);
         imageViewAbr = findViewById(R.id.imageViewAbr);
 
@@ -34,17 +33,13 @@ public class StartActivity extends AppCompatActivity implements MyListener {
         });
     }
 
-    public static Context getContext() {
-        return context;
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
-        if ((new Downloader()).checkIfFirstTime()){
+        if(checkIfFirstTime = true){
             DescriptionDialog descriptionDialog = new DescriptionDialog();
             descriptionDialog.show(getSupportFragmentManager(),"dialog");
-            (new Downloader()).notFirstTime();
+            checkIfFirstTime = false;
         }
     }
 

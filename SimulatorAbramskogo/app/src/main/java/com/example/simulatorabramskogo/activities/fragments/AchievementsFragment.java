@@ -16,19 +16,21 @@ import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
 import com.example.simulatorabramskogo.activities.AchievementDialog;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
-import com.example.simulatorabramskogo.logic.Action;
+import com.example.simulatorabramskogo.logic.Observer;
+
 
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AchievementsFragment extends Fragment {
+public class AchievementsFragment extends Fragment implements Observer {
     List<Achievement> listOfAchievements;
     RecyclerView recyclerView;
-    Action action;
-    AchievementsManager achievementsManager;
-    Abramskiy abramskiy;
+
+    AchievementsManager achievementsManager = new AchievementsManager(Abramskiy.getInstance());
+    Achievement currentAchievement;
+    Achievement nextAchievement;
 
     public AchievementsFragment() {
     }
@@ -36,27 +38,38 @@ public class AchievementsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Downloader downloader = new Downloader();
+        Downloader downloader = new Downloader(this.getContext());
         listOfAchievements = downloader.getListOfAchievements();
-        View view = inflater.inflate(R.layout.fragment_achievements,container,false);
+        View view = inflater.inflate(R.layout.fragment_achievements, container, false);
         recyclerView = view.findViewById(R.id.recycleViewAch);
 
         AchAdapter achAdapter = new AchAdapter(listOfAchievements);
         recyclerView.setAdapter(achAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+        
+        update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
 //        abramskiy.notifyObservers();
         return view;
     }
 
-    /*public void checkIfNewAchievementIsBeingAchieved(){
-    // TODO check that achievement is achieved
-        if(){
+
+    @Override
+    public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
+        if (Abramskiy.getInstance().getMarkers() >= achievementsManager.getNextAchievement().getMarkers()) {
+            achievementsManager.setNextAchievement(currentAchievement);
+            nextAchievement = achievementsManager.getNextAchievement();
+
             AchievementDialog achievementDialog = new AchievementDialog();
-            achievementDialog.show(getFragmentManager(),"achievement");
+            achievementDialog.show(getFragmentManager(), "achievement");
+
+            System.out.println("You achieved: " + currentAchievement.getName());
+            if (nextAchievement == null) {
+                //TODO dialog about winning
+            }
         }
-    }*/
+    }
 
     /* static final String achNumber = "number of achievement";
 
