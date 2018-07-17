@@ -28,7 +28,7 @@ public class AchievementsFragment extends Fragment implements Observer {
     List<Achievement> listOfAchievements;
     RecyclerView recyclerView;
 
-    AchievementsManager achievementsManager = new AchievementsManager(Abramskiy.getInstance());
+    AchievementsManager achievementsManager = new AchievementsManager();
     Achievement currentAchievement;
     Achievement nextAchievement;
 
@@ -59,7 +59,7 @@ public class AchievementsFragment extends Fragment implements Observer {
     public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
         if (Abramskiy.getInstance().getMarkers() >= achievementsManager.getNextAchievement().getMarkers()) {
             achievementsManager.setNextAchievement(currentAchievement);
-            nextAchievement = achievementsManager.getNextAchievement();
+            nextAchievement = achievementsManager.getNextAchievement(nextAchievement);
 
             AchievementDialog achievementDialog = new AchievementDialog();
             achievementDialog.show(getFragmentManager(), "achievement");
