@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment implements Observer {
     }
 
     public void checkIfGameIsOver(){
-        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0 || Abramskiy.getInstance().getMarkers() == 0){
+        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0){
             GameOverDialog gameOverDialog = new GameOverDialog();
             gameOverDialog.show(getFragmentManager(),"game over");
         }
