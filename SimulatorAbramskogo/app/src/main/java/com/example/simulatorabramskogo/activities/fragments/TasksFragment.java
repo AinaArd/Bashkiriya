@@ -49,7 +49,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
 
         checkIfGameIsOver();
         checkIfGameIsWon();
-        checkResources();
+        //checkResources();
 
         return view;
     }
@@ -88,14 +88,14 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     public void onResume() {
         super.onResume();
         checkIfGameIsOver();
-        checkIfGameIsWon();
-        checkResources();
+//        checkIfGameIsWon();
+//        checkResources();
     }
-
-    public void checkResources(){
-        if(Abramskiy.getInstance().getMarkers() < action.getMarkerPoints()){
-            NotEnoughResourcesDialog resourcesDialog = new NotEnoughResourcesDialog();
-            resourcesDialog.show(getFragmentManager(),"resources");
-        }
-    }
+//
+//    public void checkResources(){
+//        if(Abramskiy.getInstance().getMarkers() < action.getMarkerPoints()){
+//            NotEnoughResourcesDialog resourcesDialog = new NotEnoughResourcesDialog();
+//            resourcesDialog.show(getFragmentManager(),"resources");
+//        }
+//    }
 }
