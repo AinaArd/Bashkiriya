@@ -28,6 +28,7 @@ public class AchievementsManager {
     }
 
     public void update() {
+        nextAchievement.setAchieved(true);
         currentAchievement = nextAchievement;
         nextAchievement = getNextAchievement(nextAchievement);
 
