@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.AchievementsFragment;
+import com.example.simulatorabramskogo.activities.fragments.PagerFragment;
 import com.example.simulatorabramskogo.activities.fragments.ProfileFragment;
 import com.example.simulatorabramskogo.activities.fragments.TasksFragment;
 import com.example.simulatorabramskogo.database.DBHelper;
@@ -25,7 +26,7 @@ public class Navigation extends AppCompatActivity {
 
     LinearLayout frameLayout;
     TasksFragment fragmentTask;
-    AchievementsFragment fragmentAchievements;
+    PagerFragment fragmentAchievements;
     ProfileFragment fragmentProfile;
 
 
@@ -66,7 +67,7 @@ public class Navigation extends AppCompatActivity {
 
         frameLayout = findViewById(R.id.framelayout);
         fragmentTask = new TasksFragment();
-        fragmentAchievements = new AchievementsFragment();
+        fragmentAchievements = new PagerFragment();
         fragmentProfile = new ProfileFragment();
 
         setFragment(fragmentProfile);
