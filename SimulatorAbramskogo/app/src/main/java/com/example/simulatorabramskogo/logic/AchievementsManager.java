@@ -12,7 +12,7 @@ public class AchievementsManager implements Observer {
     public AchievementsManager(Abramskiy abramskiy) {
         this.abramskiy = abramskiy;
         achievements = new ArrayList<>();
-        achievements.add(new Achievement(1, "name", 1));
+        achievements.add(new Achievement(1, "name", 5000000));
         currentAchievement = achievements.get(0);
         nextAchievement = achievements.get(0);
     }
