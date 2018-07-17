@@ -61,6 +61,13 @@ public class ProfileFragment extends Fragment implements Observer {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
+
+    }
+
+    @Override
     public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
         this.markers.setText(String.valueOf(markers));
         progressBarSleep.setProgress(sleep);
