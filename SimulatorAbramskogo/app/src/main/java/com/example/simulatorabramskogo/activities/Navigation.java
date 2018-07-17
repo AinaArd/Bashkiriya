@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -76,10 +77,11 @@ public class Navigation extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        Downloader downloader = new Downloader(this);
+    protected void onPause() {
+        Downloader downloader = new Downloader();
+        Log.d("SAVED", "INFO");
         downloader.saveInfo(Abramskiy.getInstance());
-        super.onStop();
+        super.onPause();
     }
 
 }
