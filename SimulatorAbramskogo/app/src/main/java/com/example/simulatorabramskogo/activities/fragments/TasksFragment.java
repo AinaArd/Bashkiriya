@@ -11,8 +11,10 @@ import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.activities.InfoDialog;
 import com.example.simulatorabramskogo.activities.TaskAdapter;
+import com.example.simulatorabramskogo.activities.WinningDialog;
 import com.example.simulatorabramskogo.database.Downloader;
 import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.AchievementsManager;
 import com.example.simulatorabramskogo.logic.Action;
 
 import java.util.List;
@@ -23,6 +25,7 @@ import java.util.List;
 public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInterface{
     List<Action> listOfTasks;
     RecyclerView recyclerView;
+    AchievementsManager achievementsManager;
 
     public TasksFragment() {
         // Required empty public constructor
@@ -43,6 +46,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         recyclerView.setLayoutManager(layoutManager);
 
         checkIfGameIsOver();
+        checkIfGameIsWon();
 
         return view;
     }
@@ -68,5 +72,18 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
             GameOverDialog gameOverDialog = new GameOverDialog();
             gameOverDialog.show(getFragmentManager(),"game over");
         }
+    }
+
+    public void checkIfGameIsWon(){
+        if(achievementsManager.getNextAchievement() == null){}
+        WinningDialog winningDialog = new WinningDialog();
+        winningDialog.show(getFragmentManager(),"win");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkIfGameIsOver();
+        checkIfGameIsWon();
     }
 }
