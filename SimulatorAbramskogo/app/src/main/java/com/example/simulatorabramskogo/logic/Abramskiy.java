@@ -26,7 +26,7 @@ public class Abramskiy {
         mood = listOfInfo.get(2);
         authority = listOfInfo.get(3);
         observers = new ArrayList<>();
-        observers.add(new AchievementsManager(this));
+        observers.add(new AchievementsManager());
     }
 
     public static Abramskiy getInstance() {

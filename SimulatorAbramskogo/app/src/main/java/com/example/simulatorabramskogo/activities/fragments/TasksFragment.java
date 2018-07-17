@@ -25,7 +25,7 @@ import java.util.List;
 public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInterface{
     List<Action> listOfTasks;
     RecyclerView recyclerView;
-    AchievementsManager achievementsManager;
+    AchievementsManager achievementsManager = new AchievementsManager();
 
     public TasksFragment() {
         // Required empty public constructor
@@ -75,9 +75,10 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     }
 
     public void checkIfGameIsWon(){
-        if(achievementsManager.getNextAchievement() == null){}
-        WinningDialog winningDialog = new WinningDialog();
-        winningDialog.show(getFragmentManager(),"win");
+        if(achievementsManager.getNextAchievement() == null) {
+            WinningDialog winningDialog = new WinningDialog();
+            winningDialog.show(getFragmentManager(), "win");
+        }
     }
 
     @Override
