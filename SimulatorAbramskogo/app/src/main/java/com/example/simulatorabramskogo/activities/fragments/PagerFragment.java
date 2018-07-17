@@ -20,20 +20,18 @@ import com.example.simulatorabramskogo.activities.fragments.PageFragment;
 public class PagerFragment extends Fragment {
 
     static final String TAG = "myLogs";
-    static final int PAGE_COUNT = 10;
+    static final int PAGE_COUNT = 6;
 
     ViewPager pager;
     PagerAdapter pagerAdapter;
 
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-
-
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.pager, null);
+        pager = (ViewPager) view.findViewById(R.id.pager);
+        pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
+        pager.setAdapter(pagerAdapter);
         pager.setOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
@@ -50,15 +48,6 @@ public class PagerFragment extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager, null);
-        pager = (ViewPager) view.findViewById(R.id.pager);
-        pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
-        pager.setAdapter(pagerAdapter);
-
         return view;
     }
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
