@@ -48,8 +48,7 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, null);
-        manager = new AchievementsManager();
-        manager.update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
+        manager = AchievementsManager.getInstance();
         next = manager.getAchievements().get(pageNumber);
 
         textAch = (TextView) view.findViewById(R.id.textAch);

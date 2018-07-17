@@ -87,9 +87,8 @@ public class InfoDialog extends DialogFragment {
     private void checkNewAction() {
         System.out.println(Abramskiy.getInstance().getMarkers() + ">" + AchievementsManager.getInstance().getNextAchievement().getMarkers());
         System.out.println("ACHIEVED");
-        if (Abramskiy.getInstance().getMarkers() > AchievementsManager.getInstance().getNextAchievement().getMarkers()) {
+        if (Abramskiy.getInstance().getMarkers() >= AchievementsManager.getInstance().getNextAchievement().getMarkers()) {
             System.out.println("DIALOG CALLED");
-            //ToDo update viewPager
             AchievementDialog dialog = new AchievementDialog();
             dialog.setAchievement(AchievementsManager.getInstance().getNextAchievement());
             dialog.show(getFragmentManager(), "achievement");
