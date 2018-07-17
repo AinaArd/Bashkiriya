@@ -13,11 +13,11 @@ import com.example.simulatorabramskogo.R;
 /**
  * Created by ${Aina} on 17.07.2018.
  */
-public class NotEnoughResourcesDialog extends DialogFragment {
+public class NotEnoughMarkersDialog extends DialogFragment {
 
     public android.app.Dialog onCreateDialog(@Nullable Bundle saveInstanceState) {
         super.onCreateDialog(saveInstanceState);
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_resources, null);
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_markers, null);
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
 

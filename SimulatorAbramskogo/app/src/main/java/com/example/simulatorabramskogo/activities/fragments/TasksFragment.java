@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.activities.InfoDialog;
-import com.example.simulatorabramskogo.activities.NotEnoughResourcesDialog;
 import com.example.simulatorabramskogo.activities.TaskAdapter;
 import com.example.simulatorabramskogo.activities.WinningDialog;
 import com.example.simulatorabramskogo.database.Downloader;
@@ -88,14 +87,5 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
     public void onResume() {
         super.onResume();
         checkIfGameIsOver();
-//        checkIfGameIsWon();
-//        checkResources();
     }
-//
-//    public void checkResources(){
-//        if(Abramskiy.getInstance().getMarkers() < action.getMarkerPoints()){
-//            NotEnoughResourcesDialog resourcesDialog = new NotEnoughResourcesDialog();
-//            resourcesDialog.show(getFragmentManager(),"resources");
-//        }
-//    }
 }
