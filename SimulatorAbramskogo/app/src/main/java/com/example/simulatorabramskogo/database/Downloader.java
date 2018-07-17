@@ -1,8 +1,9 @@
 package com.example.simulatorabramskogo.database;
 
-import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
+import com.example.simulatorabramskogo.activities.StartActivity;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
 import com.example.simulatorabramskogo.logic.Action;
@@ -13,8 +14,10 @@ import java.util.List;
 public class Downloader {
     DBHelper helper;
 
-    public Downloader(Context context) {
-        this.helper = new DBHelper(context);
+
+    public Downloader() {
+        Log.d("This is", "CONSTRUSTOR");
+        this.helper = new DBHelper(StartActivity.getContext());
     }
 
     public List<Action> getListOfActions() {
@@ -64,13 +67,27 @@ public class Downloader {
         return achievements;
     }
     public void saveInfo(Abramskiy abramskiy) {
-        helper.getReadableDatabase().execSQL("replace into memory(markers, sleep, mood, authority, achievement) " +
+        helper.getReadableDatabase().execSQL("delete from memory");
+        helper.getReadableDatabase().execSQL("insert into memory(markers, sleep, mood, authority, achievement) " +
                 "values (" +
                 abramskiy.getMarkers() + "," +
                 abramskiy.getSleep() + "," +
                 abramskiy.getMarkers() + "," +
                 abramskiy.getAuthority() + "," +
                 abramskiy.getAchievementsManager().getCurrentAchievement().getId() + ")");
+        Log.d("Markers:", String.valueOf(abramskiy.getMarkers()));
+    }
+
+    public List<Integer> getListOfInfo() {
+        List<Integer> list = new ArrayList<>();
+        Cursor cursor = helper.getReadableDatabase().query("memory", null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            list.add(cursor.getInt(cursor.getColumnIndex("markers")));
+            list.add(cursor.getInt(cursor.getColumnIndex("sleep")));
+            list.add(cursor.getInt(cursor.getColumnIndex("mood")));
+            list.add(cursor.getInt(cursor.getColumnIndex("authority")));
+        }
+        return list;
     }
 }
 

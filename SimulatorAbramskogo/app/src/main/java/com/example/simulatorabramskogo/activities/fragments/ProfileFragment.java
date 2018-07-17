@@ -55,7 +55,7 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarAuthority = (ProgressBar) view.findViewById(R.id.progressBarAuthority);
         profilePicAdr = view.findViewById(R.id.imageViewAbr);
 
-        update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
+        update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
         checkIfGameIsOver();
 

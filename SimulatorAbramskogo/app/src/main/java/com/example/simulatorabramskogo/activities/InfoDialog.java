@@ -74,8 +74,8 @@ public class InfoDialog extends DialogFragment {
 //    @Override
 //    public void onAttach(Context context) {
 //        super.onAttach(context);
-//        if (context instanceof StartActivity) {
-//            listener = (MyListener) context;
+//        if (context instanceof ) {
+//            listener = ( context;
 //        } else {
 //            throw new RuntimeException(context.toString()
 //                    + " must implement OnFragment1DataListener");
