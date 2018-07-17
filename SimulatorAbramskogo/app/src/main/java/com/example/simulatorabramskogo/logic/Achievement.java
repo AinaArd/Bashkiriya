@@ -14,6 +14,14 @@ public class Achievement {
         this.achieved = achieved;
     }
 
+    public boolean getStatus() {
+        return achieved;
+    }
+
+    public void setAchieved(boolean achieved) {
+        this.achieved = achieved;
+    }
+
     public int getId() {
         return id;
     }

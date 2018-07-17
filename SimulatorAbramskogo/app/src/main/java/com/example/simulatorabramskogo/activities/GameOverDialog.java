@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.example.simulatorabramskogo.R;
-import com.example.simulatorabramskogo.logic.Abramskiy;
 
 /**
  * Created by ${Aina} on 16.07.2018.

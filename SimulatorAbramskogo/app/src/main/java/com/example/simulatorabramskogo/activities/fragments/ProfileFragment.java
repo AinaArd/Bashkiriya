@@ -70,15 +70,24 @@ public class ProfileFragment extends Fragment implements Observer {
     @Override
     public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
         this.markers.setText(String.valueOf(markers));
+        checkProgressBars();
         progressBarSleep.setProgress(sleep);
         progressBarMood.setProgress(mood);
         progressBarAuthority.setProgress(authority);
     }
 
     public void checkIfGameIsOver(){
-        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0 || Abramskiy.getInstance().getMarkers() == 0){
+        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0){
             GameOverDialog gameOverDialog = new GameOverDialog();
             gameOverDialog.show(getFragmentManager(),"game over");
+        }
+    }
+
+    public void checkProgressBars(){
+        if(progressBarSleep.getProgress() > 100 || progressBarMood.getProgress() > 100 || progressBarAuthority.getProgress() > 100){
+            progressBarSleep.setProgress(100);
+            progressBarMood.setProgress(100);
+            progressBarAuthority.setProgress(100);
         }
     }
 }

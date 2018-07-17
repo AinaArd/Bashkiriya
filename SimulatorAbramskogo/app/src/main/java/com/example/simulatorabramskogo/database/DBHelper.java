@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.simulatorabramskogo.logic.Abramskiy;
 
-
 public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context context) {
@@ -52,12 +51,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void loadAchievements(SQLiteDatabase db) {
-        insertAchievement("'Выспаться', 50, 0", db);
-        insertAchievement("'Стать куратором первой группы', 1000, 0", db);
-        insertAchievement("'Не опоздать на пару', 1500, 0", db);
-        insertAchievement("'Выпустить бакалавров', 2000, 0", db);
-        insertAchievement("'Попасть на календарь КФУ', 2500, 0", db);
-        insertAchievement("'Стать лучшим молодым преподавателем', 3000, 0", db);
+        insertAchievement("'Выспаться', 60, 0", db);
+        insertAchievement("'Стать куратором первой группы', 400, 0", db);
+        insertAchievement("'Не опоздать на пару', 600, 0", db);
+        insertAchievement("'Выпустить бакалавров', 800, 0", db);
+        insertAchievement("'Попасть на календарь КФУ', 1000, 0", db);
+        insertAchievement("'Стать лучшим молодым преподавателем', 1500, 0", db);
+
     }
 
     private void insertAchievement(String values, SQLiteDatabase db) {
