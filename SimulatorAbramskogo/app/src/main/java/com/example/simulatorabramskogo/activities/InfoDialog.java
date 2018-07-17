@@ -65,10 +65,10 @@ public class InfoDialog extends DialogFragment {
 
         adb.setTitle(action.getName()).setView(view)
                 .setPositiveButton("Выполнить", (dialog, which) -> {
-                            if (Abramskiy.getInstance().getMarkers() < Math.abs(action.getMarkerPoints()) && action.getMarkerPoints() < 0
-                                    && (Abramskiy.getInstance().getSleep() < Math.abs(action.getSleepPoints()))
-                                    && (Abramskiy.getInstance().getMood() < Math.abs(action.getMoodPoints()))
-                                    && (Abramskiy.getInstance().getAuthority() < Math.abs(action.getAuthorityPoints()))) {
+                            if (Abramskiy.getInstance().getMarkers() + action.getMarkerPoints() <=0
+                                    || (Abramskiy.getInstance().getSleep() + action.getSleepPoints()<=0)
+                                    || (Abramskiy.getInstance().getMood() + action.getMoodPoints()<=0)
+                                    || (Abramskiy.getInstance().getAuthority() + action.getAuthorityPoints()<=0)) {
                                 NotEnoughMarkersDialog markersDialog = new NotEnoughMarkersDialog();
                                 markersDialog.show(getFragmentManager(), "resources");
                             } else {
