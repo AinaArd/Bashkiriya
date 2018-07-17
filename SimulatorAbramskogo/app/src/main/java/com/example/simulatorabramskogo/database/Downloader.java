@@ -66,14 +66,14 @@ public class Downloader {
     }
 
     public void saveInfo(Abramskiy abramskiy) {
-        helper.getReadableDatabase().execSQL("delete from memory");
-        helper.getReadableDatabase().execSQL("insert into memory(markers, sleep, mood, authority, achievement) " +
-                "values (" +
-                abramskiy.getMarkers() + "," +
-                abramskiy.getSleep() + "," +
-                abramskiy.getMarkers() + "," +
-                abramskiy.getAuthority() + "," +
-                abramskiy.getAchievementsManager().getCurrentAchievement().getId() + ")");
+        helper.getReadableDatabase().execSQL("update memory set markers=" + abramskiy.getMarkers() + "," +
+                                                                "sleep=" + abramskiy.getSleep() + "," +
+                                                                "mood=" + abramskiy.getMood() + "," +
+                                                                "authority=" + abramskiy.getAuthority() + "," +
+                                                                "achievement=" + abramskiy.getAchievementsManager().getCurrentAchievement().getId() +
+                                                                " where id=1");
+
+
     }
 
     public List<Integer> getListOfInfo() {
