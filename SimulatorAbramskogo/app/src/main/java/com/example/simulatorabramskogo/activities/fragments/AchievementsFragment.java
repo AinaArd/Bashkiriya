@@ -50,7 +50,6 @@ public class AchievementsFragment extends Fragment implements Observer {
         
         update(Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
-//        abramskiy.notifyObservers();
         return view;
     }
 
