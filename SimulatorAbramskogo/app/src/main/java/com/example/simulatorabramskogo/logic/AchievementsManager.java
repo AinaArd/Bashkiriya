@@ -52,4 +52,8 @@ public class AchievementsManager implements Observer {
     public void setNextAchievement(Achievement nextAchievement) {
         this.nextAchievement = nextAchievement;
     }
+
+    public List<Achievement> getAchievements() {
+        return achievements;
+    }
 }
