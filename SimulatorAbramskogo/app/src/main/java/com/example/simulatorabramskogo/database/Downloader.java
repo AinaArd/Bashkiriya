@@ -89,5 +89,18 @@ public class Downloader {
         }
         return list;
     }
+
+    public boolean checkIfFirstTime() {
+        Cursor cursor = helper.getReadableDatabase().query("memory", null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            int bool = cursor.getInt(cursor.getColumnIndex("firsttime"));
+            return bool == 1;
+        }
+        return false;
+    }
+
+    public void notFirstTime() {
+        helper.getReadableDatabase().execSQL("update memory set firsttime=0 where id=1");
+    }
 }
 

@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.database.Downloader;
 
 public class StartActivity extends AppCompatActivity implements MyListener {
     private static Context context;
-    public static boolean checkIfFirstTime = true;
     Button buttonStart;
     ImageView imageViewAbr;
 
@@ -41,10 +41,10 @@ public class StartActivity extends AppCompatActivity implements MyListener {
     @Override
     protected void onStart() {
         super.onStart();
-        if(checkIfFirstTime = true){
+        if ((new Downloader()).checkIfFirstTime()){
             DescriptionDialog descriptionDialog = new DescriptionDialog();
             descriptionDialog.show(getSupportFragmentManager(),"dialog");
-            checkIfFirstTime = false;
+            (new Downloader()).notFirstTime();
         }
     }
 
