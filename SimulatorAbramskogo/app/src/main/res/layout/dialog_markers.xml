@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="52dp"
-        android:text="У тебя недостаточно маркеров!"
+        android:text="У тебя недостаточно ресурсов!"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />;
