@@ -11,6 +11,7 @@ import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.GameOverDialog;
 import com.example.simulatorabramskogo.activities.InfoDialog;
 import com.example.simulatorabramskogo.activities.TaskAdapter;
+import com.example.simulatorabramskogo.activities.WinningDialog;
 import com.example.simulatorabramskogo.database.Downloader;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
@@ -45,6 +46,7 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         recyclerView.setLayoutManager(layoutManager);
 
         checkIfGameIsOver();
+        checkIfGameIsWon();
 
         return view;
     }
@@ -74,6 +76,14 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
 
     public void checkIfGameIsWon(){
         if(achievementsManager.getNextAchievement() == null){}
+        WinningDialog winningDialog = new WinningDialog();
+        winningDialog.show(getFragmentManager(),"win");
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkIfGameIsOver();
+        checkIfGameIsWon();
     }
 }
