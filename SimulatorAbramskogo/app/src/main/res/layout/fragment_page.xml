@@ -8,14 +8,13 @@
     android:orientation="vertical">
 
 
-
     <TextView
         android:id="@+id/textAch"
         android:layout_width="268dp"
         android:layout_height="78dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="20sp" />
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="97dp"
+        android:layout_marginBottom="58dp"
         android:text="Не достигнуто"
         android:textAlignment="center"
         android:textSize="20sp" />
@@ -37,18 +36,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp"
+        android:layout_marginBottom="27dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="10sp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="304dp"
-        android:layout_height="247dp"
+        android:layout_height="324dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="108dp"
         app:srcCompat="@drawable/achievement" />
 
 </RelativeLayout>
