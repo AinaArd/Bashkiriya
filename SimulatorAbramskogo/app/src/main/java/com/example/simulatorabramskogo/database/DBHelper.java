@@ -54,10 +54,10 @@ public class DBHelper extends SQLiteOpenHelper {
         insertAchievement("'NoAchievement', 0, 1", db);
         insertAchievement("'Выспаться', 60, 0", db);
         insertAchievement("'Стать куратором первой группы', 100, 0", db);
-        insertAchievement("'Не опоздать на пару', 600, 0", db);
-        insertAchievement("'Выпустить бакалавров', 800, 0", db);
-        insertAchievement("'Попасть на календарь КФУ', 1000, 0", db);
-        insertAchievement("'Стать лучшим молодым преподавателем', 1500, 0", db);
+        insertAchievement("'Не опоздать на пару', 150, 0", db);
+        insertAchievement("'Выпустить бакалавров', 200, 0", db);
+        insertAchievement("'Попасть на календарь КФУ', 220, 0", db);
+        insertAchievement("'Стать лучшим молодым преподавателем', 240, 0", db);
 
     }
 
@@ -96,4 +96,34 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public void newGame(SQLiteDatabase db) {
+        db.execSQL("create table actions("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "sleepPoints integer,"
+                + "moodPoints integer,"
+                + "authorityPoints integer,"
+                + "markerPoints integer"
+                + ");");
+        db.execSQL("create table achievements("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "markers integer,"
+                + "achieved integer" +
+                ");");
+
+        db.execSQL("create table memory("
+                + "id integer primary key autoincrement,"
+                + "markers integer,"
+                + "sleep integer,"
+                + "mood integer,"
+                + "authority integer,"
+                + "achievement integer," +
+                "firsttime integer" +
+                ");");
+
+        loadActions(db);
+        loadAchievements(db);
+        loadInfo(db);
+    }
 }

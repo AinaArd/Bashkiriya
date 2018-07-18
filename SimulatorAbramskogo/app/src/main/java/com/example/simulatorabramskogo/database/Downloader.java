@@ -123,7 +123,11 @@ public class Downloader {
     }
 
     public void newGame() {
-        helper = new DBHelper(StartActivity.getContext());
+        helper.getReadableDatabase().execSQL("drop table actions");
+        helper.getReadableDatabase().execSQL("drop  table achievements");
+        helper.getReadableDatabase().execSQL("drop table memory");
+        helper.newGame(helper.getReadableDatabase());
+
     }
 }
 

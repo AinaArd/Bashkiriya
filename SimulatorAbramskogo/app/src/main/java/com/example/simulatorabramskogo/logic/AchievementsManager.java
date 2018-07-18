@@ -36,18 +36,6 @@ public class AchievementsManager {
 
     }
 
-//    public void update(Integer sleep, Integer mood, Integer authority, Integer markers) {
-//        if (Abramskiy.getInstance().getMarkers() >= nextAchievement.getMarkers()) {
-//            currentAchievement = nextAchievement;
-//            nextAchievement = getNextAchievement(nextAchievement);
-//            //TODO dialog about next achievement
-//            System.out.println("You achieved: " + currentAchievement.getName());
-//            if (nextAchievement == null) {
-//                //TODO dialog about winning
-//            }
-//        }
-//    }
-
     public Achievement getNextAchievement() {
         return nextAchievement;
     }

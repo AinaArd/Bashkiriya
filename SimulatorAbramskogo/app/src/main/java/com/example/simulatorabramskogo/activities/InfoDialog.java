@@ -77,7 +77,7 @@ public class InfoDialog extends DialogFragment {
                                     GameOverDialog gameOverDialog = new GameOverDialog();
                                     gameOverDialog.show(getFragmentManager(), "resources");
                                 } else {
-                                    checkNewAction();
+                                    checkNewAchievement();
                                 }
                             }
                         }
@@ -88,15 +88,20 @@ public class InfoDialog extends DialogFragment {
 
     }
 
-    private void checkNewAction() {
+    private void checkNewAchievement() {
         System.out.println(Abramskiy.getInstance().getMarkers() + ">" + AchievementsManager.getInstance().getNextAchievement().getMarkers());
         System.out.println("ACHIEVED");
         if (Abramskiy.getInstance().getMarkers() >= AchievementsManager.getInstance().getNextAchievement().getMarkers()) {
-            System.out.println("DIALOG CALLED");
-            AchievementDialog dialog = new AchievementDialog();
-            dialog.setAchievement(AchievementsManager.getInstance().getNextAchievement());
-            dialog.show(getFragmentManager(), "achievement");
-            AchievementsManager.getInstance().update();
+            if (AchievementsManager.getInstance().getNextAchievement(AchievementsManager.getInstance().getNextAchievement()) != null) {
+                System.out.println("DIALOG CALLED");
+                AchievementDialog dialog = new AchievementDialog();
+                dialog.setAchievement(AchievementsManager.getInstance().getNextAchievement());
+                dialog.show(getFragmentManager(), "achievement");
+                AchievementsManager.getInstance().update();
+            } else {
+                WinningDialog winningDialog = new WinningDialog();
+                winningDialog.show(getFragmentManager(), "win");
+            }
         }
     }
 

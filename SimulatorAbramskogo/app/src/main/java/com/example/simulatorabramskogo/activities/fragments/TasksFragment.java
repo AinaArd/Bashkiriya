@@ -46,9 +46,6 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        checkIfGameIsOver();
-        checkIfGameIsWon();
-        //checkResources();
 
         return view;
     }
@@ -69,23 +66,4 @@ public class TasksFragment extends Fragment implements TaskAdapter.TaskDialogInt
         infoDialog.show(getFragmentManager(), "info");
     }
 
-    public void checkIfGameIsOver(){
-        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0 || Abramskiy.getInstance().getMarkers() == 0){
-            GameOverDialog gameOverDialog = new GameOverDialog();
-            gameOverDialog.show(getFragmentManager(),"game over");
-        }
-    }
-
-    public void checkIfGameIsWon(){
-        if(AchievementsManager.getInstance().getNextAchievement() == null) {
-            WinningDialog winningDialog = new WinningDialog();
-            winningDialog.show(getFragmentManager(), "win");
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        checkIfGameIsOver();
-    }
 }

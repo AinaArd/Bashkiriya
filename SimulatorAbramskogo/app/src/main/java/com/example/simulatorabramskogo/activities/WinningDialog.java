@@ -8,6 +8,8 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.AchievementsManager;
 
 /**
  * Created by Aina on 17.07.2018.
@@ -19,11 +21,13 @@ public class WinningDialog extends DialogFragment {
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
 
-        adb.setTitle("Поздравляю! Ты выиграл!").setMessage("Начать заново?").
+        adb.setTitle("Поздравляю! Ты выиграл!").
                 setView(view)
                 .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Abramskiy.getInstance().newGame();
+                        AchievementsManager.getInstance().newGame();
                     }
                 })
                 .setNegativeButton("Нет", (dialog, which) -> dismiss());
