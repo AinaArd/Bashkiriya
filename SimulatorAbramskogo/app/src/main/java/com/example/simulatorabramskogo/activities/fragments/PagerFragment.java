@@ -57,7 +57,7 @@ public class PagerFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
+        pager.setCurrentItem(AchievementsManager.getInstance().getCurrentAchievement().getId() - 1);
     }
 
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
