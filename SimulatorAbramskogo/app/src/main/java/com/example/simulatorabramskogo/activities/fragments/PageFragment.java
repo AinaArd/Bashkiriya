@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -73,7 +74,11 @@ public class PageFragment extends Fragment {
 
     public void update() {
         if (next.getStatus() || (next.getId() <= manager.getCurrentAchievement().getId())) {
-            imageView.setImageResource(R.drawable.ach_1);
+
+
+            String mDrawableName = "ach_"+(next.getId()-1);
+            int resID = getResources().getIdentifier(mDrawableName , "drawable", getActivity().getPackageName());
+            imageView.setImageResource(resID);
             status.setText("Достигнуто!");
             pointsLeft.setText("");
         } else {
