@@ -83,5 +83,9 @@ public class Abramskiy {
     }
 
 
-
+    public void newGame() {
+        Downloader d = new Downloader();
+        d.newGame();
+        instance = new Abramskiy();
+    }
 }

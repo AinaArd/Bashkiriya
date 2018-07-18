@@ -72,4 +72,8 @@ public class AchievementsManager {
     public List<Achievement> getAchievements() {
         return achievements;
     }
+
+    public void newGame() {
+        instance = new AchievementsManager();
+    }
 }

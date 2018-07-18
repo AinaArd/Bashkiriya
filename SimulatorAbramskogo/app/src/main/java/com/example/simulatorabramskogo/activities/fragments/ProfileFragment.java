@@ -55,8 +55,6 @@ public class ProfileFragment extends Fragment implements Observer {
 
         update( Abramskiy.getInstance().getSleep(), Abramskiy.getInstance().getMood(), Abramskiy.getInstance().getAuthority(), Abramskiy.getInstance().getMarkers());
 
-        checkIfGameIsOver();
-
         return view;
     }
 
@@ -76,12 +74,7 @@ public class ProfileFragment extends Fragment implements Observer {
         progressBarAuthority.setProgress(authority);
     }
 
-    public void checkIfGameIsOver(){
-        if(Abramskiy.getInstance().getSleep() == 0 || Abramskiy.getInstance().getMood() == 0 || Abramskiy.getInstance().getAuthority() == 0){
-            GameOverDialog gameOverDialog = new GameOverDialog();
-            gameOverDialog.show(getFragmentManager(),"game over");
-        }
-    }
+
 
     public void checkProgressBars(){
         if(progressBarSleep.getProgress() > 100 || progressBarMood.getProgress() > 100 || progressBarAuthority.getProgress() > 100){

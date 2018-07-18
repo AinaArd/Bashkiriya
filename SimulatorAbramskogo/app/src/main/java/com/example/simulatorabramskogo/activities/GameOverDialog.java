@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.example.simulatorabramskogo.R;
+import com.example.simulatorabramskogo.logic.Abramskiy;
+import com.example.simulatorabramskogo.logic.Achievement;
+import com.example.simulatorabramskogo.logic.AchievementsManager;
 
 /**
  * Created by ${Aina} on 16.07.2018.
@@ -20,17 +23,16 @@ public class GameOverDialog extends DialogFragment {
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
 
-        adb.setTitle("Ты проиграл!").setMessage("Не хочешь попробовать еще раз?").
-                setView(view)
-                .setPositiveButton("Да! Я еще отыграюсь!", new DialogInterface.OnClickListener() {
+        adb.setTitle("Ты проиграл!").setView(view)
+                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO обнулить все показатели, откатиться к началу
-
-
+                        Abramskiy.getInstance().newGame();
+                        AchievementsManager.getInstance().newGame();
                     }
                 })
-                .setNegativeButton("Нет...Я в печали", (dialog, which) -> dismiss());
+                .setNegativeButton("Нет", (dialog, which) -> dismiss());
         return adb.show();
     }
+
 }

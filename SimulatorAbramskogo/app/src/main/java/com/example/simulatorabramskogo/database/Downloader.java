@@ -122,5 +122,8 @@ public class Downloader {
         return null;
     }
 
+    public void newGame() {
+        helper = new DBHelper(StartActivity.getContext());
+    }
 }
 
