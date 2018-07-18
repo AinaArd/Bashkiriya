@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.activities.fragments.PageFragment;
+import com.example.simulatorabramskogo.logic.AchievementsManager;
 
 public class PagerFragment extends Fragment {
 
@@ -33,6 +34,7 @@ public class PagerFragment extends Fragment {
         pager = (ViewPager) view.findViewById(R.id.pager);
         pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
         pager.setAdapter(pagerAdapter);
+        pager.setCurrentItem(AchievementsManager.getInstance().getCurrentAchievement().getId() - 1);
         pager.setOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
@@ -51,6 +53,13 @@ public class PagerFragment extends Fragment {
         });
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
+    }
+
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
         public MyFragmentPagerAdapter(FragmentManager fm) {
