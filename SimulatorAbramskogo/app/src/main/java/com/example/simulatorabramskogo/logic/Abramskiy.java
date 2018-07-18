@@ -35,15 +35,27 @@ public class Abramskiy {
 
 
     public void setSleep(Integer sleep) {
-        this.sleep = sleep;
+        if (sleep > 100) {
+            this.sleep = 100;
+        } else {
+            this.sleep = 100;
+        }
     }
 
     public void setMood(Integer mood) {
-        this.mood = mood;
+        if (mood > 100) {
+            this.mood = 100;
+        } else {
+            this.mood = mood;
+        }
     }
 
     public void setAuthority(Integer authority) {
-        this.authority = authority;
+        if (authority > 100) {
+            this.authority = 100;
+        } else {
+            this.authority = authority;
+        }
     }
 
     public void setMarkers(Integer markers) {
@@ -68,14 +80,23 @@ public class Abramskiy {
 
     public void addSleep(Integer sleepPoints) {
         sleep += sleepPoints;
+        if (sleep > 100) {
+            sleep = 100;
+        }
     }
 
     public void addMood(Integer moodPoints) {
         mood += moodPoints;
+        if (mood > 100) {
+            mood = 100;
+        }
     }
 
     public void addAuthority(Integer authorityPoints) {
         authority += authorityPoints;
+        if (authority > 100) {
+            authority = 100;
+        }
     }
 
     public void addMarkers(Integer markerPoints) {
