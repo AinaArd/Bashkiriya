@@ -17,6 +17,7 @@ public class AchievementsManager {
     private AchievementsManager() {
         achievements = (new Downloader()).getListOfAchievements();
         Log.d("SIZE", String.valueOf(achievements.size()));
+        currentAchievement = new Achievement(0, "NoAchievement", 0, true);
         nextAchievement = achievements.get(0);
     }
 
