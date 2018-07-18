@@ -7,19 +7,34 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.simulatorabramskogo.R;
 import com.example.simulatorabramskogo.logic.Abramskiy;
 import com.example.simulatorabramskogo.logic.Achievement;
 import com.example.simulatorabramskogo.logic.AchievementsManager;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by ${Aina} on 16.07.2018.
  */
 public class GameOverDialog extends DialogFragment {
+    TextView newGame;
+
     public android.app.Dialog onCreateDialog(@Nullable Bundle saveInstanceState) {
         super.onCreateDialog(saveInstanceState);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_game_over, null);
+
+        newGame = view.findViewById(R.id.startAgainText);
+
+        if (Abramskiy.getInstance().getSleep() <= 0) {
+            newGame.setText("Похоже, ты проиграл из-за недосыпа:(");
+        } else if (Abramskiy.getInstance().getMood() <= 0) {
+            newGame.setText("Ты проиграл от стресса на работе :(");
+        } else if (Abramskiy.getInstance().getAuthority()  <= 0) {
+            newGame.setText("Коллеги больше не уважают тебя :(");
+        }
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
 

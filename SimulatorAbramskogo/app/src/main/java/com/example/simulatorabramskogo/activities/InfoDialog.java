@@ -71,9 +71,9 @@ public class InfoDialog extends DialogFragment {
                             } else {
                                 System.out.println("PERFORMED");
                                 action.perform();
-                                if (Abramskiy.getInstance().getSleep() + action.getSleepPoints() <= 0
-                                        || Abramskiy.getInstance().getMood() + action.getMoodPoints() <= 0
-                                        || Abramskiy.getInstance().getAuthority() + action.getAuthorityPoints() <= 0) {
+                                if (Abramskiy.getInstance().getSleep() <= 0
+                                        || Abramskiy.getInstance().getMood() <= 0
+                                        || Abramskiy.getInstance().getAuthority()  <= 0) {
                                     GameOverDialog gameOverDialog = new GameOverDialog();
                                     gameOverDialog.show(getFragmentManager(), "resources");
                                 } else {

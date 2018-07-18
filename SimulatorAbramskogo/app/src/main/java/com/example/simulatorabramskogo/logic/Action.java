@@ -24,15 +24,10 @@ public class Action {
     }
 
     public void perform() {
-
-        if (abramskiy.getSleep() + sleepPoints <= 0 || abramskiy.getMood() + moodPoints <= 0 || abramskiy.getAuthority() + authorityPoints <= 0) {
-            System.out.println("Game over");
-        } else {
             abramskiy.addSleep(sleepPoints);
             abramskiy.addMood(moodPoints);
             abramskiy.addAuthority(authorityPoints);
             abramskiy.addMarkers(markerPoints);
-        }
     }
 
     public String getName() {
