@@ -103,5 +103,24 @@ public class Downloader {
     public void notFirstTime() {
         helper.getReadableDatabase().execSQL("update memory set firsttime=0 where id=1");
     }
+
+    public Achievement getCurrentAchievement() {
+        Cursor cursor = helper.getReadableDatabase().query("memory", null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            return getAchievementById(cursor.getInt(cursor.getColumnIndex("achievement")));
+        }
+        return null;
+    }
+
+    private Achievement getAchievementById(int achievement) {
+        List<Achievement> list = getListOfAchievements();
+        for (Achievement a: list) {
+            if (a.getId() == achievement) {
+                return a;
+            }
+        }
+        return null;
+    }
+
 }
 

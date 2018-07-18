@@ -49,7 +49,7 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, null);
         manager = AchievementsManager.getInstance();
-        next = manager.getAchievements().get(pageNumber);
+        next = manager.getAchievements().get(pageNumber + 1);
 
         textAch = (TextView) view.findViewById(R.id.textAch);
         imageView = (ImageView) view.findViewById(R.id.imageView);
@@ -57,8 +57,8 @@ public class PageFragment extends Fragment {
         pointsLeft = (TextView) view.findViewById(R.id.textPointsLeft);
 
         textAch.setText(next.getName());
-        pointsLeft.setText("Чтобы получить достижение, наберите еще " + (next.getMarkers() - Abramskiy.getInstance().getMarkers()) + " фломастеров");
-
+       // pointsLeft.setText("Чтобы получить достижение, наберите еще " + (next.getMarkers() - Abramskiy.getInstance().getMarkers()) + " фломастеров");
+        update();
 
         return view;
     }
@@ -67,12 +67,12 @@ public class PageFragment extends Fragment {
     public void onResume() {
         super.onResume();
         pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
-        next = manager.getAchievements().get(pageNumber);
+        next = manager.getAchievements().get(pageNumber + 1);
         update();
     }
 
     public void update() {
-        if (next.getStatus()) {
+        if (next.getStatus() || (next.getId() <= manager.getCurrentAchievement().getId())) {
             imageView.setImageResource(R.drawable.ach_1);
             status.setText("Достигнуто!");
             pointsLeft.setText("");

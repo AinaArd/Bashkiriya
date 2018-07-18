@@ -15,10 +15,11 @@ public class AchievementsManager {
     private Achievement nextAchievement;
 
     private AchievementsManager() {
-        achievements = (new Downloader()).getListOfAchievements();
+        Downloader d = new Downloader();
+        achievements = d.getListOfAchievements();
         Log.d("SIZE", String.valueOf(achievements.size()));
-        currentAchievement = new Achievement(0, "NoAchievement", 0, true);
-        nextAchievement = achievements.get(0);
+        currentAchievement = d.getCurrentAchievement();
+        nextAchievement = getNextAchievement(currentAchievement);
     }
 
     public static AchievementsManager getInstance() {
