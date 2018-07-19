@@ -28,6 +28,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:textSize="18dp"
+        android:gravity="center"
         android:text="Хочешь начать заново?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

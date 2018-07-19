@@ -29,11 +29,11 @@ public class GameOverDialog extends DialogFragment {
         newGame = view.findViewById(R.id.startAgainText);
 
         if (Abramskiy.getInstance().getSleep() <= 0) {
-            newGame.setText("Похоже, ты проиграл из-за недосыпа:(");
+            newGame.setText("Похоже, ты проиграл из-за недосыпа:( \n Хотите начать заново?");
         } else if (Abramskiy.getInstance().getMood() <= 0) {
-            newGame.setText("Ты проиграл от стресса на работе :(");
+            newGame.setText("Ты проиграл от стресса на работе :( \n Хотите начать заново?");
         } else if (Abramskiy.getInstance().getAuthority()  <= 0) {
-            newGame.setText("Коллеги больше не уважают тебя :(");
+            newGame.setText("Коллеги больше не уважают тебя :( \n Хотите начать заново?");
         }
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
