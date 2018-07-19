@@ -52,12 +52,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private void loadAchievements(SQLiteDatabase db) {
         insertAchievement("'NoAchievement', 0, 1", db);
-        insertAchievement("'Выспаться', 60, 0", db);
-        insertAchievement("'Стать куратором первой группы', 100, 0", db);
-        insertAchievement("'Не опоздать на пару', 150, 0", db);
-        insertAchievement("'Выпустить бакалавров', 200, 0", db);
-        insertAchievement("'Попасть на календарь КФУ', 220, 0", db);
-        insertAchievement("'Стать лучшим молодым преподавателем', 240, 0", db);
+        insertAchievement("'Выспаться', 100, 0", db);
+        insertAchievement("'Стать куратором первой группы', 200, 0", db);
+        insertAchievement("'Не опоздать на пару', 300, 0", db);
+        insertAchievement("'Выпустить бакалавров', 400, 0", db);
+        insertAchievement("'Попасть на календарь КФУ', 500, 0", db);
+        insertAchievement("'Стать лучшим молодым преподавателем', 750, 0", db);
 
     }
 
