@@ -4,6 +4,8 @@
 
     <application
         android:allowBackup="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher_icon_abr"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_icon_abr"
